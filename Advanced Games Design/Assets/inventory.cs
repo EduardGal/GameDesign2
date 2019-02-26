@@ -18,8 +18,8 @@ public class inventory : MonoBehaviour {
 	void Update () {
         if (IsitemInRange)
         {
-            HelpMessage.text = "Press E to pick up " + itemInRange.GetComponent<item>().Item.Name;
-            if (Input.GetKeyDown(KeyCode.E))
+            HelpMessage.text = "Press C to pick up " + itemInRange.GetComponent<item>().Item.Name;
+            if (Input.GetKeyDown(KeyCode.C))
             {
 				FindObjectOfType<AudioManager>().Play("PickUp");
                 itemInRange.GetComponent<onPlayerNearItem>().OnPickUp(transform.parent.gameObject);

@@ -42,7 +42,6 @@ public class RockThrow : MonoBehaviour
         {
             rock = Player.instance.itemInHand.GetComponent<Rigidbody>();
 			
-			FindObjectOfType<AudioManager>().Play("PickUp");
         }
         else
         {
