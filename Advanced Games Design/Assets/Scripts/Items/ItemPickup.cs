@@ -1,24 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NetworkReference;
 
 public class ItemPickup : Interactables
 {
     public float radius;
     public GameObject pickupPanel;
-    private Transform player;
+    private Transform playerOne, playerTwo;
     public Items item;
     private AnimationClip animationClip;
 
+    private networkManager networkReference;
+
+   
+
     public void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("PlayerOne").transform;
+        networkReference = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
         animationClip = item.animation;
 
         var canvas = GameObject.Find("Canvas");
         pickupPanel = canvas.transform.Find("PickupPanel").gameObject;
     }
-    
+
+    public void Update()
+    {
+        if(playerOne == null && playerTwo== null)
+        {
+            playerOne = networkReference.playerOne.transform;
+            playerTwo = networkReference.playerTwo.transform;
+
+        }
+    }
+
     public void PickUpItem()
     {
         bool ItemPickedUp = Inventory.instance.AddItem(item);
@@ -41,6 +56,7 @@ public class ItemPickup : Interactables
                 pickupPanel.SetActive(true);
             }
         }
+
     }
 
     private void OnTriggerExit(Collider other)

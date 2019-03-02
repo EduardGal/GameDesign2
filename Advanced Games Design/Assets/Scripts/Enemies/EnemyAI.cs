@@ -69,6 +69,7 @@ public class EnemyAI : MonoBehaviour {
         else if (distanceToPlayerTwo.sqrMagnitude > 4.0f)
         {
             navMeshAgent.destination = enemySenses.playerTwoLastKnownLocation;
+            navMeshAgent.stoppingDistance = stoppingDistanceFromPlayers;
         }
 
         //TODO: tinker with the chaseSpeed - perhaps slow the speed when the enemy is analysing the player to allow the player to escape in time

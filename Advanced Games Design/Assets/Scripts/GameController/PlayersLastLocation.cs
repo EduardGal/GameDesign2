@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NetworkReference;
 
 public class PlayersLastLocation : MonoBehaviour
 {
@@ -18,8 +19,11 @@ public class PlayersLastLocation : MonoBehaviour
     private AudioSource sightedAudio;
     private AudioSource[] sirens;
 
+    private networkManager NetworkManager;
+
     private void Awake()
     {
+        NetworkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
         GameObject[] alarmLightingObjects = GameObject.FindGameObjectsWithTag(GameTags.alarmLight);
         alarmsLighting = new AlarmsLighting[alarmLightingObjects.Length];
         for (int i = 0; i < alarmsLighting.Length; i++)
@@ -33,9 +37,15 @@ public class PlayersLastLocation : MonoBehaviour
 
     private void Update()
     {
+       
+        playerOnePosition = NetworkManager.playerOne.transform.position;
+        playerTwoPosition = NetworkManager.playerTwo.transform.position;
+        if (playerTwoPosition == null || playerTwoPosition == new Vector3(1000,1000,1000))
+        {
+            playerTwoPosition = NetworkManager.playerTwo.transform.position;
+        }
         SetAlarms();
-        
-    }
+    } 
 
     void SetAlarms()
     {

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class CurrentRoomCanvas : MonoBehaviour {
+public class CurrentRoomCanvas : Photon.MonoBehaviour {
 
+    public GameObject loading;
+    public GameObject StartMatch;
     public void OnClickStartSync()
     {
         if (!PhotonNetwork.isMasterClient)
@@ -9,14 +11,31 @@ public class CurrentRoomCanvas : MonoBehaviour {
         PhotonNetwork.LoadLevel(1);
     }
 
+
     public void OnClickStartDelayed()
     {
-        if (!PhotonNetwork.isMasterClient)
-            return;
+        this.gameObject.GetComponent<PhotonView>().photonView.RPC("StartGame", PhotonTargets.AllViaServer, null);
+
+    }
+
+    [PunRPC]
+    public void StartGame()
+    {
+
 
         PhotonNetwork.room.IsOpen = false;
         PhotonNetwork.room.IsVisible = false;
-        PhotonNetwork.LoadLevel(1);
+        loading.SetActive(true);
+        //PhotonNetwork.LoadLevel(1);
+    }
+
+    public void Update()
+    {
+        if (PhotonNetwork.player.IsMasterClient)
+        {
+            StartMatch.gameObject.SetActive(true);
+        }
+        else StartMatch.gameObject.SetActive(false);
     }
 
 }

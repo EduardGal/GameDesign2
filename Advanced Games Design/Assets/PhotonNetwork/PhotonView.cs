@@ -689,4 +689,9 @@ public class PhotonView : Photon.MonoBehaviour
     {
         return string.Format("View ({3}){0} on {1} {2}", this.viewID, (this.gameObject != null) ? this.gameObject.name : "GO==null", (this.isSceneView) ? "(scene)" : string.Empty, this.prefix);
     }
+
+    internal void RPC(object v, PhotonTargets all)
+    {
+        throw new NotImplementedException();
+    }
 }

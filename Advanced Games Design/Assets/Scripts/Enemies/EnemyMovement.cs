@@ -43,18 +43,7 @@ public class EnemyMovement : MonoBehaviour {
             // fromVector = enemies forward vector, toVector = from enemy to the player, upVector = enemies up Vector
             enemyAngle = FindAngleToPlayers(transform.forward, playerOne.position - transform.position, transform.up);
         }
-        else
-        {
-            enemySpeed = Vector3.Project(navMeshAgent.desiredVelocity, transform.forward).magnitude;
-            enemyAngle = FindAngleToPlayers(transform.forward, navMeshAgent.desiredVelocity, transform.up);
-
-            if(Mathf.Abs(enemyAngle) < stoppingDistance)
-            {
-                transform.LookAt(transform.position + navMeshAgent.desiredVelocity);
-                enemyAngle = 0.0f;
-            }
-        }
-        
+              
         if (enemySense.isPlayerTwoInSight)
         {
             enemySpeed = 0.0f;
@@ -95,12 +84,12 @@ public class EnemyMovement : MonoBehaviour {
         if (stream.isWriting)
         {
             //THIS IS OUR PLAYER
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-            stream.SendNext(anim.GetFloat("Speed"));
-            stream.SendNext(anim.GetFloat("AngularSpeed"));
-            stream.SendNext(anim.GetBool("PlayerInSight"));
-            stream.SendNext(anim.GetBool("HasBeenCaught"));
+         //  stream.SendNext(transform.position);
+         //   stream.SendNext(transform.rotation);
+          //  stream.SendNext(anim.GetFloat("Speed"));
+          //  stream.SendNext(anim.GetFloat("AngularSpeed"));
+          //  stream.SendNext(anim.GetBool("PlayerInSight"));
+          //  stream.SendNext(anim.GetBool("HasBeenCaught"));
 
         }
         else

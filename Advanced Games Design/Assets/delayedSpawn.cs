@@ -6,7 +6,7 @@ public class delayedSpawn : MonoBehaviour
 {
 
 
-    public GameObject drone1, drone2;
+    public GameObject[] drones;
     // Start is called before the first frame update 
 
 
@@ -17,8 +17,10 @@ public class delayedSpawn : MonoBehaviour
     {
 
         yield return new WaitForSeconds(6.5f);
-        drone1.SetActive(true);
-        drone2.SetActive(true);
-
+       foreach(GameObject drone in drones)
+        {
+            drone.SetActive(true);
+        }
+        
     }
 }

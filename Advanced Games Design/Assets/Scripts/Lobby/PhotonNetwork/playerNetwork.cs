@@ -69,6 +69,8 @@ public class playerNetwork : MonoBehaviour {
         
         float randomValue = Random.Range(40f, 45f);
         PhotonNetwork.Instantiate(player.name, new Vector3(randomValue, 2f, 230), Quaternion.identity, 0);
+        
+
 
     }
 

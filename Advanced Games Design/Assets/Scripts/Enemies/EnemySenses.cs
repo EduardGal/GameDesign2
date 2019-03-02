@@ -22,7 +22,7 @@ public class EnemySenses : MonoBehaviour {
     private Vector3 playerTwoPreviousSighting; 
 
     public GameObject playerOne; // Since there will be two players in the world, we will need to store them inside an array
-    private GameObject playerTwo;
+    public GameObject playerTwo;
 
     private Animator playerOneAnimator; // This is the players animator
     private Animator playerTwoAnimator;

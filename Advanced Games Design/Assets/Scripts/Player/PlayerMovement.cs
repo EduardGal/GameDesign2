@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : Photon.MonoBehaviour
 {
-
+    public PhotonView[] players;
     [SerializeField] float walkSpeed = 2.0f;
     [SerializeField] float runSpeed = 6.0f;
     [SerializeField] float gravity = -12.0f;
@@ -24,6 +24,7 @@ public class PlayerMovement : Photon.MonoBehaviour
     CharacterController characterController;
     Transform cameraTransform;
 
+    
     private void Awake()
     {
         if (devTesting)
@@ -37,13 +38,24 @@ public class PlayerMovement : Photon.MonoBehaviour
             if (GetComponent<PhotonView>().viewID.ToString().Contains("1"))
             {
                 gameObject.transform.tag = "PlayerOne";
+                gameObject.name = "PlayerOne";
+
+                
             }
-            if (GetComponent<PhotonView>().viewID.ToString().Contains("2"))
+                
+
+            
+            else if (GetComponent<PhotonView>().viewID.ToString().Contains("2"))
             {
                 gameObject.transform.tag = "PlayerTwo";
-            }
+                gameObject.name = "PlayerTwo";
 
+
+            }
+                
         }
+
+        
 
 
     }
@@ -55,12 +67,22 @@ public class PlayerMovement : Photon.MonoBehaviour
         cameraTransform = Camera.main.transform;
         characterController = GetComponent<CharacterController>();
         FindObjectOfType<AudioManager>().Play("Soundtrack");
+        PhotonView.RPC("Tags", PhotonTargets.AllBufferedViaServer, null);
+        
     }
 
 
 
     private void Update()
     {
+
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            if (!GameObject.FindGameObjectWithTag("PlayerOne"))
+            {
+                GameObject.FindGameObjectWithTag("Player").tag = "PlayerOne";
+            } else GameObject.FindGameObjectWithTag("Player").tag = "PlayerTwo";
+        }
         if (!devTesting)
         {
             if (photonView.isMine)

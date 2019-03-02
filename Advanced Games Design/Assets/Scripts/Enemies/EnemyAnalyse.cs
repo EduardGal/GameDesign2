@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using NetworkReference;
 
 public class EnemyAnalyse : MonoBehaviour {
 
@@ -26,13 +27,20 @@ public class EnemyAnalyse : MonoBehaviour {
     GameObject spotlightPosition;
     public Vector3 spotlightOffset;
 
+    private networkManager NetworkManager;
+
+
     private void Awake()
+    {
+        NetworkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
+    }
+    private void Start()
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        playerOne = GameObject.FindGameObjectWithTag("PlayerOne").transform;
-        playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
+        playerOne = NetworkManager.playerOne.transform;
+        playerTwo = NetworkManager.playerTwo.transform;
         startingSpotlightColour = spotlight.color;
         playersLastLocation = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayersLastLocation>();
         //viewAngle = spotlight.spotAngle;
@@ -82,6 +90,25 @@ public class EnemyAnalyse : MonoBehaviour {
         return false;
 
     }
+    bool PlayerTwoInRange()
+    {
+        if (Vector3.Distance(transform.position, playerTwo.position) < viewDistance)
+        {
+            Vector3 directionToPlayer = (playerTwo.position - transform.position).normalized;
+            float angleBetweenBotAndPlayer = Vector3.Angle(transform.forward, directionToPlayer);
+            if (angleBetweenBotAndPlayer < viewAngle / 2.0f)
+            {
+                if (!Physics.Linecast(transform.position, playerTwo.position, layerMask))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
+
 
     void AnalysePlayerOne()
     {
@@ -94,7 +121,7 @@ public class EnemyAnalyse : MonoBehaviour {
 
     void AnalysePlayerTwo()
     {
-        playersLastLocation.playerOnePosition = playerTwo.transform.position;
+        playersLastLocation.playerTwoPosition = playerTwo.transform.position;
 
         navMeshAgent.destination = playerTwo.transform.position;
         navMeshAgent.stoppingDistance = 7.0f;

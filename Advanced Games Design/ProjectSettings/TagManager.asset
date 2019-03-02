@@ -16,6 +16,7 @@ TagManager:
   - Interactable
   - PickupPanel
   - Ground
+  - NetworkManager
   layers:
   - Default
   - TransparentFX
