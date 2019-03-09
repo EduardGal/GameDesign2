@@ -8,7 +8,7 @@ public class CurrentRoomCanvas : Photon.MonoBehaviour {
     {
         if (!PhotonNetwork.isMasterClient)
             return;
-        PhotonNetwork.LoadLevel(1);
+        PhotonNetwork.LoadLevel(3);
     }
 
 

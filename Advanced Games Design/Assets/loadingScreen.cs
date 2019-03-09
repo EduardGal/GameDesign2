@@ -14,18 +14,27 @@ public class loadingScreen : Photon.MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        PhotonNetwork.LoadLevelAsync(1);
-        
+    PhotonNetwork.LoadLevelAsync(3);
+    
+        async.allowSceneActivation = false;
         loading.transform.localScale = new Vector3(0.1f, -.5f, 0.3f);
+        this.gameObject.GetComponent<PhotonView>().RPC("LoadLevel", PhotonTargets.AllViaServer, null);
+    }
+
+    [PunRPC]
+    void LoadLevel()
+    {
+        SceneManager.LoadScene("Framandi v1", LoadSceneMode.Additive);
+        async.allowSceneActivation = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        async.allowSceneActivation = false;
-        isLoaded = PhotonNetwork.LoadLevelAsync(1).isDone;
-        float progress = PhotonNetwork.LoadLevelAsync(1).progress;
-        loadingText.text = PhotonNetwork.LoadLevelAsync(1).progress.ToString() +  " %";
+
+        isLoaded = PhotonNetwork.LoadLevelAsync(3).isDone;
+        float progress = PhotonNetwork.LoadLevelAsync(3).progress;
+        loadingText.text = PhotonNetwork.LoadLevelAsync(3).progress.ToString() +  " %";
         loading.transform.localScale = new Vector3(progress / 50, -.5f, 0.3f);
     }
 }

@@ -9,10 +9,13 @@ public class photonHandler : MonoBehaviour {
 
     public GameObject mainPlayer;
 
+    public Vector3[] spawnPoint;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.transform);
-
+        spawnPoint[1] = new Vector3(-2, 0, 0);
+        spawnPoint[2] = new Vector3(0, 0, 0);
         PhotonNetwork.sendRate = 60;
         PhotonNetwork.sendRateOnSerialize = 60;
 
@@ -22,7 +25,7 @@ public class photonHandler : MonoBehaviour {
 
     public void moveScene()
     {
-        PhotonNetwork.LoadLevel("Framandi v1");
+        PhotonNetwork.LoadLevel("KidsRoom");
     }
 
     public void CreateNewRoom()
@@ -33,7 +36,7 @@ public class photonHandler : MonoBehaviour {
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "Framandi v1")
+        if(scene.name == "KidsRoom")
         {
             spawnPlayer();
         }
@@ -42,11 +45,17 @@ public class photonHandler : MonoBehaviour {
 
     private void spawnPlayer()
     {
-        int randomY;
-        int randomX;
 
-        randomX = Random.Range(40, 50);
-        randomY = Random.Range(240, 250);
-        PhotonNetwork.Instantiate(mainPlayer.name, new Vector3(randomX, 0.8f, randomY), mainPlayer.transform.rotation, 0);
+        int playerNum =1;
+
+        if (playerNum == 1)
+        {
+            PhotonNetwork.Instantiate(mainPlayer.name, spawnPoint[1], mainPlayer.transform.rotation, 0);
+            playerNum = 2;
+        }else if (playerNum == 2)
+            {
+                PhotonNetwork.Instantiate(mainPlayer.name, spawnPoint[2], mainPlayer.transform.rotation, 0);
+                playerNum = 3;
+            }
     }
 }

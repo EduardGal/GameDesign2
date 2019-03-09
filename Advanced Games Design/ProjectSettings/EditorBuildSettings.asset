@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loading Screen 1.unity
     guid: 595526aff135b134d98836ac8458455a
+  - enabled: 1
+    path: Assets/Scenes/KidsRoom.unity
+    guid: 60398b8a24bd0134dbdc95e9cefd2e91
   m_configObjects: {}

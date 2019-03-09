@@ -50,4 +50,6 @@ MonoBehaviour:
   - OnClickStartDelayed
   - StartGame
   - Tags
+  - LoadLevel
+  - LoadLevelToFramandi
   DisableAutoOpenWizard: 1
