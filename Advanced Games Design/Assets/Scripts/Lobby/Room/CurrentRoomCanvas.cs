@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CurrentRoomCanvas : Photon.MonoBehaviour {
 
@@ -21,12 +22,15 @@ public class CurrentRoomCanvas : Photon.MonoBehaviour {
     [PunRPC]
     public void StartGame()
     {
-
+        
+       // SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
 
         PhotonNetwork.room.IsOpen = false;
         PhotonNetwork.room.IsVisible = false;
         loading.SetActive(true);
-        //PhotonNetwork.LoadLevel(1);
+        AsyncOperation op = PhotonNetwork.LoadLevelAsync(1);
+
+
     }
 
     public void Update()

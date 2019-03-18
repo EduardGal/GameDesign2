@@ -17,6 +17,7 @@ TagManager:
   - PickupPanel
   - Ground
   - NetworkManager
+  - DimCanvas
   layers:
   - Default
   - TransparentFX

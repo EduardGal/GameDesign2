@@ -21,7 +21,7 @@ public class playerNetwork : MonoBehaviour {
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Framandi v1")
+        if (scene.name == "KidsRoom")
         {
             if (PhotonNetwork.isMasterClient)
                 MasterLoadedGame();
@@ -66,12 +66,8 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_CreatePlayer()
     {
+        PhotonNetwork.Instantiate(player.name, new Vector3(-2,0,0), Quaternion.identity, 0);
         
-        float randomValue = Random.Range(40f, 45f);
-        PhotonNetwork.Instantiate(player.name, new Vector3(randomValue, 2f, 230), Quaternion.identity, 0);
-        
-
-
     }
 
 }

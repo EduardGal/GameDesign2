@@ -17,20 +17,27 @@ public class OnTriggerLoadScene : MonoBehaviour
     // Update is called once per frame
     void OnTriggerStay(Collider plyr)
     {
-        if (plyr.gameObject.tag == "PlayerOne")
+        if (plyr.gameObject.tag == "PlayerOne" || plyr.gameObject.tag == "PlayerTwo")
         {
             enterText.SetActive(true);
-            if (Input.GetButtonDown("Use"))
+            if (Input.GetKeyUp(KeyCode.E))
             {
-                SceneManager.LoadScene(levelToLoad);
+                plyr.gameObject.GetComponent<screenDim>().ChangeToFramandi();
+               // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
+                GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                Destroy(this);
             }
         }
     }
     void OnTriggerExit(Collider plyr)
     {
-        if (plyr.gameObject.tag == "PlayerOne")
+        if (plyr.gameObject.tag == "PlayerOne" || plyr.gameObject.tag == "PlayerTwo")
         {
             enterText.SetActive(false);
         }
     }
+
+
+
 }

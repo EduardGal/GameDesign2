@@ -50,4 +50,8 @@ MonoBehaviour:
   - OnClickStartDelayed
   - StartGame
   - Tags
+  - LoadForAll
+  - LoadFramandi
+  - LoadToFramandi
+  - DimScreen
   DisableAutoOpenWizard: 1

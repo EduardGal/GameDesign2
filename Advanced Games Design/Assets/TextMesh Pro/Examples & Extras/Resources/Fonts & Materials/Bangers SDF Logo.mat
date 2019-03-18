@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Bangers SDF Logo
   m_Shader: {fileID: 4800000, guid: f7ada0af4f174f0694ca6a487b8f543d, type: 3}
   m_ShaderKeywords: GLOW_ON
@@ -48,8 +49,8 @@ Material:
     - _BumpFace: 0
     - _BumpOutline: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0.2
-    - _FaceShininess: 1
+    - _FaceDilate: 0.327
+    - _FaceShininess: 0.265
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.076
@@ -65,11 +66,11 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.4
+    - _OutlineWidth: 0.413
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.90909094
-    - _ScaleRatioB: 0.6136364
+    - _ScaleRatioB: 0.44136363
     - _ScaleRatioC: 0.90909094
     - _ScaleX: 1
     - _ScaleY: 1
