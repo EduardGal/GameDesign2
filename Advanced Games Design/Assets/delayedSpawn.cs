@@ -8,27 +8,26 @@ public class delayedSpawn : MonoBehaviour
 
 
     public GameObject[] drones;
+    public GameObject[] NetworkScripts;
     // Start is called before the first frame update 
 
 
-    private void Update()
+ 
+
+    IEnumerator Start()
     {
-        if (SceneManager.sceneCount > 1)
+        Debug.Log("start Delay");
+       yield return new WaitForSeconds(3.5f);
+
+        foreach (GameObject network in NetworkScripts)
         {
-
+            network.SetActive(true);
         }
-        else Delay();
-    }
-
-
-    IEnumerator Delay()
-    {
-
-        yield return new WaitForSeconds(6.5f);
-       foreach(GameObject drone in drones)
+        yield return new WaitForSeconds(1.5f);
+        foreach (GameObject drone in drones)
         {
             drone.SetActive(true);
         }
-        
+       
     }
 }
