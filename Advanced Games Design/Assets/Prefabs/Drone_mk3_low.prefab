@@ -518,6 +518,7 @@ MonoBehaviour:
   playerTwoLastKnownLocation: {x: 1000, y: 1000, z: 1000}
   playerOnePreviousSighting: {x: 0, y: 0, z: 0}
   playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
 --- !u!114 &5955761260227589534
 MonoBehaviour:
   m_ObjectHideFlags: 0

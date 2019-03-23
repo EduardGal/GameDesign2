@@ -21,6 +21,7 @@ public class ItemPickup : Interactables
         animationClip = item.animation;
 
         var canvas = GameObject.Find("Canvas");
+        Debug.Log("Found canvas" + canvas.name);
         pickupPanel = canvas.transform.Find("PickupPanel").gameObject;
     }
 
@@ -29,7 +30,7 @@ public class ItemPickup : Interactables
         if(playerOne == null && playerTwo== null)
         {
             playerOne = networkReference.playerOne.transform;
-            playerTwo = networkReference.playerTwo.transform;
+            //playerTwo = networkReference.playerTwo.transform;
 
         }
     }
@@ -51,7 +52,7 @@ public class ItemPickup : Interactables
         if (other.tag == "PlayerOne")
         {
             Debug.Log("Player one has entered");
-            if (pickupPanel != null && Player.instance.itemInHand.name != "Rock(Clone)")
+            if (pickupPanel != null && Player.instance.itemInHand != this.gameObject)
             {
                 pickupPanel.SetActive(true);
             }

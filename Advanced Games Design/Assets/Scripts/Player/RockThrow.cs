@@ -56,11 +56,8 @@ public class RockThrow : MonoBehaviour
 
             lineRenderer.enabled = true;
 
-            if (debugPath)
-            {
-                target = cursor.transform;
-                DrawPath();
-            }
+            target = cursor.transform;
+            DrawPath();
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
