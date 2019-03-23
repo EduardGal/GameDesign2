@@ -16,7 +16,7 @@ public class RockBehaviour : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-        {
+        {Debug.Log("Collided with ground");
             //Perhaps let the rock roll a little then freeze contraints?
             rb.constraints = RigidbodyConstraints.FreezeAll;
             

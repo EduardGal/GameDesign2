@@ -21,7 +21,6 @@ public class ItemPickup : Interactables
         animationClip = item.animation;
 
         var canvas = GameObject.Find("Canvas");
-        Debug.Log("Found canvas" + canvas.name);
         pickupPanel = canvas.transform.Find("PickupPanel").gameObject;
     }
 
