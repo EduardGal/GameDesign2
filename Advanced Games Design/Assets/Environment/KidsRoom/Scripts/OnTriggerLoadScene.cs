@@ -24,7 +24,7 @@ public class OnTriggerLoadScene : MonoBehaviour
             {
                 plyr.gameObject.GetComponent<screenDim>().ChangeToFramandi();
                // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
-                GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
+               // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(this);
             }

@@ -12,7 +12,7 @@ public class loadFramandi : MonoBehaviour
     public void LoadToFramandi()
     {
 
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+      //  SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
 
         
     }

@@ -7,12 +7,16 @@ public class screenDim : Photon.MonoBehaviour
 
 
 {
+    AsyncOperation sync;
 
     public GameObject dimImage;
     // Start is called before the first frame update
     void Awake()
     {
         dimImage = GameObject.FindGameObjectWithTag("DimCanvas");
+
+
+        sync.allowSceneActivation = false;
        // this.GetComponent<PhotonView>(). photonView.RPC("DimScreen", PhotonTargets.AllBufferedViaServer, null);
     }
 
@@ -25,42 +29,60 @@ public class screenDim : Photon.MonoBehaviour
 
     public void ChangeToFramandi()
     {
-        this.GetComponent<PhotonView>().photonView.RPC("DimScreen", PhotonTargets.AllBufferedViaServer, null);
+            
+            this.GetComponent<PhotonView>().photonView.RPC("DimScreen", PhotonTargets.AllViaServer, null);
+
+
     }
 
     [PunRPC]
     IEnumerator DimScreen()
     {
-        AsyncOperation sync;
+
+
+
         sync = SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
-        sync.allowSceneActivation = false;
-
-
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        yield return new WaitForSeconds(1.5f);
-
-
         yield return new WaitForSeconds(3.5f);
 
+
+       // yield return new WaitForSeconds(3.5f);
+
         sync.allowSceneActivation = true;
-        yield return new WaitForSeconds(1.5f);
-        if (this.gameObject.tag == "PlayerOne")
+       yield return new WaitForSeconds(.1f);
+
+
+       if (this.gameObject.tag == "PlayerOne")
         {
-            gameObject.transform.position = new Vector3(41, 4.1f, 260);
+            gameObject.transform.position = new Vector3(41, 5f, 260);
             SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetSceneByName("Framandi v1"));
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Framandi v1"));
-            SceneManager.UnloadSceneAsync("KidsRoom");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
+
+
 
         }
-        else if(this.gameObject.tag == "PlayerTwo")
-        {
-            gameObject.transform.position = new Vector3(36, 4.4f, 226);
-            SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetSceneByName("Framandi"));
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Framandi v1"));
-            SceneManager.UnloadSceneAsync("KidsRoom");
-        }
-        yield return null;
+        if(this.gameObject.tag == "PlayerTwo")
+       {
+            gameObject.transform.position = new Vector3(36, 5f, 226);
+            SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetSceneByName("Framandi v1"));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
 
+        }
+        yield return new WaitForSeconds(.2f);
+
+
+        Debug.Log("SetScene");
         this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        int c = SceneManager.sceneCount;
+        for (int i = 0; i < c; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            print(scene.name);
+            if (scene.name != "Framandi v1")
+            {
+                SceneManager.UnloadSceneAsync(scene);
+                Debug.Log("Unloaded");
+            }
+        }
     }
 }

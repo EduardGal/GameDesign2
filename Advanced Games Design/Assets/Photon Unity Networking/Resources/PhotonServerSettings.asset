@@ -54,4 +54,5 @@ MonoBehaviour:
   - LoadFramandi
   - LoadToFramandi
   - DimScreen
+  - CreatePlayer
   DisableAutoOpenWizard: 1

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace NetworkReference
 {
@@ -10,11 +10,20 @@ namespace NetworkReference
         public PhotonView[] players;
         public GameObject playerOne, playerTwo;
         // Start is called before the first frame update
+        public GameObject player;
 
+        private int PlayersInGame;
+        private int times = 0;
 
+        public void Awake()
+        {
+     
+        }
 
         public void Update()
         {
+          
+           
             if (playerOne == null)
             {
 
@@ -44,6 +53,8 @@ namespace NetworkReference
                     }
             }
         }
+
+
 
     }
 }
