@@ -12,9 +12,16 @@ public class delayedSpawn : MonoBehaviour
     // Start is called before the first frame update 
 
 
- 
+    public void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "Framandi v1")
+        {
+            StartCoroutine(Delay());
+        }
+    }
 
-    IEnumerator Start()
+
+    public IEnumerator Delay()
     {
         Debug.Log("start Delay");
        yield return new WaitForSeconds(3.5f);
@@ -28,6 +35,7 @@ public class delayedSpawn : MonoBehaviour
         {
             drone.SetActive(true);
         }
+        Destroy(this);
        
     }
 }

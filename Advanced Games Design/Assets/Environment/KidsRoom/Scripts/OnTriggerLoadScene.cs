@@ -8,6 +8,7 @@ public class OnTriggerLoadScene : MonoBehaviour
 
     public GameObject enterText;
     public string levelToLoad;
+    public GameObject networkManager;
 
     void Start()
     {
@@ -19,10 +20,12 @@ public class OnTriggerLoadScene : MonoBehaviour
     {
         if (plyr.gameObject.tag == "PlayerOne" || plyr.gameObject.tag == "PlayerTwo")
         {
+            networkManager.SetActive(true);
             enterText.SetActive(true);
             if (Input.GetKeyUp(KeyCode.E))
             {
-                plyr.gameObject.GetComponent<screenDim>().ChangeToFramandi();
+
+                networkManager.gameObject.GetComponent<screenDim>().ChangeToFramandi();
                // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
                // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
                 gameObject.GetComponent<BoxCollider>().enabled = false;

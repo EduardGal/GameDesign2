@@ -14,7 +14,7 @@ namespace PlayerFinder
         // Update is called once per frame
         void Update()
         {
-            if (PhotonNetwork.playerList.Length == 2 && (Player1 == null || Player2 == null))
+            if (PhotonNetwork.playerList.Length == 2 && (Player1 == null && Player2 == null))
             {
                 Player1 = GameObject.FindGameObjectWithTag("PlayerOne");
                 Player2 = GameObject.FindGameObjectWithTag("PlayerTwo");

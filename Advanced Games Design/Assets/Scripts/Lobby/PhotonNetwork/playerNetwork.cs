@@ -36,12 +36,14 @@ public class playerNetwork : MonoBehaviour {
         Debug.Log("MasterLoadedGame");
         photonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         photonView.RPC("RPC_LoadGameOthers", PhotonTargets.Others);
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
     }
 
     private void NonMasterLoadedGame()
     {
         Debug.Log("Non Master Loaded Game");
         photonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
     }
 
     [PunRPC]

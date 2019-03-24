@@ -1668,10 +1668,9 @@ GameObject:
   - component: {fileID: 2881960438729740169}
   - component: {fileID: 2703863960507593892}
   - component: {fileID: 1629107643665075928}
-  - component: {fileID: 125274619}
   m_Layer: 12
   m_Name: PlayerOne 1
-  m_TagString: Player1
+  m_TagString: PlayerTwo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1980,19 +1979,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
---- !u!114 &125274619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5231704078169205671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b202f1b705b084c824b4ca985b49a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimImage: {fileID: 0}
 --- !u!1 &5387106901303651602
 GameObject:
   m_ObjectHideFlags: 0

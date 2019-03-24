@@ -16,6 +16,7 @@ public class PlayerMovement : Photon.MonoBehaviour
     private Vector3 selfPos;
     private Quaternion realRotation;
     private GameObject myInvCanvas;
+    private bool tagSet = false;
 
 
     private float playerSpeed, animSpeedPercent, turnSmoothVelocity, speedSmoothVelocity, currentSpeed, velocityY;
@@ -35,22 +36,22 @@ public class PlayerMovement : Photon.MonoBehaviour
         if (!devTesting && PhotonView.isMine)
         {
             plCam.SetActive(true);
-            if (GetComponent<PhotonView>().viewID.ToString().Contains("1"))
+
+            if (tagSet == false)
             {
-                gameObject.transform.tag = "PlayerOne";
-                gameObject.name = "PlayerOne";
-
+                if (GetComponent<PhotonView>().viewID.ToString().Contains("1"))
+                {
+                    gameObject.transform.tag = "PlayerOne";
+                    gameObject.name = "PlayerOne";
+                    tagSet = true;
+                }
                 
-            }
-                
-
-            
-            else if (GetComponent<PhotonView>().viewID.ToString().Contains("2"))
-            {
-                gameObject.transform.tag = "PlayerTwo";
-                gameObject.name = "PlayerTwo";
-
-
+                else if (GetComponent<PhotonView>().viewID.ToString().Contains("2"))
+                {
+                    gameObject.transform.tag = "PlayerTwo";
+                    gameObject.name = "PlayerTwo";
+                    tagSet = true;
+                }
             }
                 
         }
