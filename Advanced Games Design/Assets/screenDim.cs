@@ -18,7 +18,7 @@ public class screenDim : Photon.MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         dimImage = GameObject.FindGameObjectWithTag("DimCanvas");
         playersInGame.Capacity = 2;
 
