@@ -22,6 +22,6 @@ public class RotateToMouse : MonoBehaviour
         // Get Angle in Degrees
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg + 92);
+        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
     }
 }

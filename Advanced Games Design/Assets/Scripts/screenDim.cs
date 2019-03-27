@@ -31,15 +31,23 @@ public class screenDim : Photon.MonoBehaviour
     {
         //DontDestroyOnLoad(this.gameObject);
         //dimImage.GetComponent<Image>().color = new Color(0, 0, 0, Mathf.SmoothStep(255, 0, 2 * Time.deltaTime));
-        while (playersInGame.Count != 2)
+        if (playerOne == null)
         {
             playerOne = GameObject.FindGameObjectWithTag("PlayerOne");
-            playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
             playersInGame.Add(playerOne);
+        }
+
+        if (playerTwo == null)
+        {
+            playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
             playersInGame.Add(playerTwo);
         }
+
+
+
+    }       
         
-    }
+    
 
     public void ChangeToFramandi()
     {
@@ -53,7 +61,7 @@ public class screenDim : Photon.MonoBehaviour
     public IEnumerator DimScreen()
     {
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(0.2f);
 
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
