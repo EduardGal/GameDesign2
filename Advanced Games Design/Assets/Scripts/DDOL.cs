@@ -9,4 +9,16 @@ public class DDOL : MonoBehaviour {
     {
         DontDestroyOnLoad(this);
     }
+
+
+    private void OnApplicationQuit()
+    {
+        PhotonNetwork.Disconnect();
+    }
+
+    private void OnDestroy()
+    {
+        PhotonNetwork.Disconnect();
+    }
+
 }

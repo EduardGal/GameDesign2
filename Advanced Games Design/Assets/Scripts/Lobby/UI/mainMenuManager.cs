@@ -46,7 +46,7 @@ public class mainMenuManager : MonoBehaviour {
 
     public void OnClickExit()
     {
-        System.Diagnostics.Process.GetCurrentProcess().Kill();
+        
     }
 
 }
