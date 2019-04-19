@@ -50,6 +50,20 @@ public class PlayerLayoutGroup : MonoBehaviour {
         PlayerListing.Add(playerListing);
         
     }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject playerListingObj = Instantiate(PlayerListingPrefab);
+            playerListingObj.transform.SetParent(transform, false);
+
+            PlayerListing playerListing = playerListingObj.GetComponent<PlayerListing>();
+            
+
+            PlayerListing.Add(playerListing);
+        }
+    }
     private void PlayerLeftRoom(PhotonPlayer photonPlayer)
     {
         int index = PlayerListing.FindIndex(x => x.PhotonPlayer == photonPlayer);
@@ -61,7 +75,7 @@ public class PlayerLayoutGroup : MonoBehaviour {
     }
     public void OnClickLeaveRoom()
     {
-        currentRoom.transform.SetAsFirstSibling();
+        currentRoom.SetActive(false);
         PhotonNetwork.LeaveRoom();
     }
     public void OnClickRoomState()

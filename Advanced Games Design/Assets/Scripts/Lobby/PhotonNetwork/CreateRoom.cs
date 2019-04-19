@@ -4,7 +4,7 @@ using TMPro;
 public class CreateRoom : MonoBehaviour {
 
     public GameObject mainMenu;
-    public GameObject createview;
+    public GameObject createview, currentView;
 
     [SerializeField]
     private TextMeshProUGUI _roomName;
@@ -22,6 +22,7 @@ public class CreateRoom : MonoBehaviour {
         {
             print("create sent");
             createview.SetActive(false);
+            currentView.SetActive(true);
         }
         else
         {

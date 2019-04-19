@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class mainMenuManager : MonoBehaviour {
 
-    public GameObject createGame, joinGame, lobbyView2, mainMenu;
+    public GameObject createGame, joinGame, lobbyView2, mainMenu, currentRoom;
 
 	public void OnCreate()
     {
         createGame.SetActive(true);
         lobbyView2.SetActive(false);
         joinGame.transform.SetAsFirstSibling();
-
+        
         // mainMenu.SetActive(false);
     }
 

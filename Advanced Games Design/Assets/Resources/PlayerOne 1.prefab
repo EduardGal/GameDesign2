@@ -1159,20 +1159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 3
-  distanceFromTarget: 3.5
-  cameraHeightToPlayer: 1.5
-  rotationSmoothTime: 8
+  distanceFromTarget: 1.7
+  cameraHeightToPlayer: 1.4
+  rotationSmoothTime: 20
   cameraTarget: {fileID: 8612425375342525658}
   pitchMinMax: {x: -40, y: 85}
   lockCursor: 1
   changeTransparency: 1
   bodyRenderer: {fileID: 1714095718561627065}
   jointsRenderer: {fileID: 7270054327462062976}
-  cameraMoveSpeed: 5
+  cameraMoveSpeed: 10
   returnToOriginalSpeed: 9
   wallPush: 0.7
-  closeDistanceToPlayer: 2
-  closestDistanceToPlayer: 1
+  closeDistanceToPlayer: 1.7
+  closestDistanceToPlayer: 1.7
   collisionMask:
     serializedVersion: 2
     m_Bits: 512
@@ -1875,7 +1875,7 @@ MonoBehaviour:
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
-  devTesting: 0
+  devTesting: 1
   plCam: {fileID: 3306418361397425493}
 --- !u!114 &7371279433928146324
 MonoBehaviour:
