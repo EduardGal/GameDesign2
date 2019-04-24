@@ -1641,6 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1313c45403d00b46ba4855d62188047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   walkSpeed: 2
   runSpeed: 6
   gravity: -12
@@ -1722,8 +1723,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 280}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 7
+  instantiationId: 7
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &281

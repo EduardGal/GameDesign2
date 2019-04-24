@@ -2289,6 +2289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1313c45403d00b46ba4855d62188047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   walkSpeed: 2
   runSpeed: 6
   gravity: -12
@@ -2319,8 +2320,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114306699007235824}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 7
+  instantiationId: 7
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114318460347598956
@@ -2341,6 +2342,9 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 2
     Name: speedPercent
+  - Type: 4
+    SynchronizeType: 0
+    Name: throwRock
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
