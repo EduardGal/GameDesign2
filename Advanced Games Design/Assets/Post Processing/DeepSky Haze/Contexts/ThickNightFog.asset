@@ -63,6 +63,6 @@ MonoBehaviour:
       m_FogDensityHeightFalloff: 0.045
       m_FogStartDistance: 0.004
       m_FogScatteringDirection: 0.581
-      m_FogAmbientColour: {r: 0.07450981, g: 0.40784314, b: 0.56078434, a: 0.627451}
+      m_FogAmbientColour: {r: 0.29411766, g: 0.40784314, b: 0.56078434, a: 0.67058825}
       m_FogLightColour: {r: 0.9111338, g: 0.95349765, b: 0.990566, a: 0.37254903}
     m_SoloItem: -1
