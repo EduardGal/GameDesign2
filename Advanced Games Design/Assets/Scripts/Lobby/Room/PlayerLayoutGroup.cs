@@ -61,6 +61,7 @@ public class PlayerLayoutGroup : MonoBehaviour {
             PlayerListing playerListing = playerListingObj.GetComponent<PlayerListing>();
             
 
+
             PlayerListing.Add(playerListing);
         }
     }
