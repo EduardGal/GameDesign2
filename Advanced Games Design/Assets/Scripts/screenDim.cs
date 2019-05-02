@@ -34,20 +34,13 @@ public class screenDim : Photon.MonoBehaviour
         if (playerOne == null)
         {
             playerOne = GameObject.FindGameObjectWithTag("PlayerOne");
-            if (playerOne != null)
-            {
-                playersInGame.Add(playerOne);
-            }
+            playersInGame.Add(playerOne);
         }
 
         if (playerTwo == null)
         {
-
             playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
-            if (playerTwo != null)
-            {
-                playersInGame.Add(playerTwo);
-            }
+            playersInGame.Add(playerTwo);
         }
 
 

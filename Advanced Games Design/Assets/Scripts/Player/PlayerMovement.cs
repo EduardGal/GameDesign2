@@ -13,7 +13,6 @@ public class PlayerMovement : Photon.MonoBehaviour
     public bool devTesting = false;
     private PhotonView PhotonView;
     public GameObject plCam;
-    public GameObject invCanvas;
     private Vector3 selfPos;
     private Quaternion realRotation;
     private GameObject myInvCanvas;
@@ -32,13 +31,12 @@ public class PlayerMovement : Photon.MonoBehaviour
         if (devTesting)
         {
             plCam.SetActive(true);
-            invCanvas.SetActive(true);
         }
         PhotonView = GetComponent<PhotonView>();
         if (!devTesting && PhotonView.isMine)
         {
             plCam.SetActive(true);
-            invCanvas.SetActive(true);
+
             if (tagSet == false)
             {
                 if (GetComponent<PhotonView>().viewID.ToString().Contains("1"))

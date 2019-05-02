@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class loadFramandi : Photon.MonoBehaviour
+public class loadFramandi : MonoBehaviour
 {
 
 
@@ -12,7 +12,7 @@ public class loadFramandi : Photon.MonoBehaviour
     public void LoadToFramandi()
     {
 
-        
+      //  SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
 
         
     }

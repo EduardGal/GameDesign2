@@ -29,7 +29,7 @@ public class ItemPickup : Interactables
         if(playerOne == null && playerTwo== null)
         {
             playerOne = networkReference.playerOne.transform;
-            playerTwo = networkReference.playerTwo.transform;
+            //playerTwo = networkReference.playerTwo.transform;
 
         }
     }
