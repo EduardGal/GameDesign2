@@ -22,7 +22,7 @@ public class OnTriggerLoadScene : MonoBehaviour
         {
             networkManager.SetActive(true);
             enterText.SetActive(true);
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
 
                 networkManager.gameObject.GetComponent<screenDim>().ChangeToFramandi();

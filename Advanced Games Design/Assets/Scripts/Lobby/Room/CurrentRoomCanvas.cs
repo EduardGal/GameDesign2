@@ -23,7 +23,7 @@ public class CurrentRoomCanvas : Photon.MonoBehaviour {
     public void StartGame()
     {
         
-       // SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
 
         PhotonNetwork.room.IsOpen = false;
         PhotonNetwork.room.IsVisible = false;
