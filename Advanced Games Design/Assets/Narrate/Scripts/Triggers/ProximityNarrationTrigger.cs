@@ -15,6 +15,11 @@ using UnityEditor;
 //////////////////////////////////////////////////////////////////////////////
 namespace Narrate {
     public class ProximityNarrationTrigger : NarrationTrigger {
+
+        private void Start()
+        {
+     //       triggeredBy = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
+        }
         /// <summary>
         /// Ignore z-coordinate when computing proximty. Meant for 2D games
         /// </summary>

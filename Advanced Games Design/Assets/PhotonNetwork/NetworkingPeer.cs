@@ -446,7 +446,8 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
 
     private readonly Dictionary<string, int> rpcShortcuts;  // lookup "table" for the index (shortcut) of an RPC name
 
-    /// <summary>Caches PhotonNetworkingMessage.OnPhotonInstantiate.ToString(), because DoInstantiate calls it often (and ToString() on the enum is astonishingly expensive).</summary>
+    /// <summary>Caches PhotonNetworkingMessage.OnPhoton
+    /// .ToString(), because DoInstantiate calls it often (and ToString() on the enum is astonishingly expensive).</summary>
     private static readonly string OnPhotonInstantiateString = PhotonNetworkingMessage.OnPhotonInstantiate.ToString();
 
 
