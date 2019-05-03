@@ -15,7 +15,6 @@ public class exitTreeHouse : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 other.gameObject.transform.position = groundPos.position;
-                FindObjectOfType<AudioManager>().Play("Climb");
             }
         }
     }
