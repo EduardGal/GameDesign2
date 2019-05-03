@@ -34,7 +34,7 @@ TagManager:
   - Player
   - Enemy
   - Item
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Foreground
+    uniqueID: 2718644949
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
