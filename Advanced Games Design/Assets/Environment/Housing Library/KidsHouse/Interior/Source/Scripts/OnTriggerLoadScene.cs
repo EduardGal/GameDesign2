@@ -31,6 +31,7 @@ public class OnTriggerLoadScene : MonoBehaviour
                 // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(this);
+                FindObjectOfType<AudioManager>().Play("SoundtrackGame");
             }
         }
     }
