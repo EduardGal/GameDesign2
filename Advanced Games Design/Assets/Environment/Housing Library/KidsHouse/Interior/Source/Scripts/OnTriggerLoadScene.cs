@@ -26,8 +26,9 @@ public class OnTriggerLoadScene : MonoBehaviour
             {
 
                 networkManager.gameObject.GetComponent<screenDim>().ChangeToFramandi();
-               // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
-               // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
+                enterText.SetActive(false);
+                // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
+                // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(this);
             }
