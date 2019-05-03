@@ -19,7 +19,7 @@ namespace Narrate {
         /// Ignore z-coordinate when computing proximty. Meant for 2D games
         /// </summary>
         public bool is2D = false;
-        public Transform triggeredBy;//the Transforms of GameObjects that can trigger this
+        public Transform triggeredBy; //the Transforms of GameObjects that can trigger this
         public float proximity; //Triggers when objects are within this distance
         public float timeInProximityToTrigger = 0;//ADDED
         public bool timeMustBeConsecutive = false;

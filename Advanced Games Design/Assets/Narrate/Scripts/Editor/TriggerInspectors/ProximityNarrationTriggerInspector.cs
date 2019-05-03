@@ -6,7 +6,7 @@ namespace Narrate {
     public class ProximityNarrationTriggerInspector : NarrationTriggerInspector {
         private bool foldout = false;
         public override void OnInspectorGUI() {
-            ProximityNarrationTrigger pn = (ProximityNarrationTrigger)target;
+        ProximityNarrationTrigger pn = (ProximityNarrationTrigger)target;
             base.OnInspectorGUI();
             foldout = EditorGUILayout.Foldout(foldout, "ProximitySettings");
             if (foldout) {
