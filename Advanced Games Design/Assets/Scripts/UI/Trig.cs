@@ -17,14 +17,14 @@ using UnityEngine.SceneManagement;
 		 {
 			 
 	uiObject.SetActive(true);
-			 AudioListener.volume = 1.0f;
 			 FindObjectOfType<AudioManager>().Play("Objective");
      }
  
-    else
-	{
-				 AudioListener.volume = 1.0f;
-     }
+    else if (player.gameObject.tag == "PlayerTwo")
+        {
+            uiObject.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("Objective");
+        }
 }
 }
 	 
