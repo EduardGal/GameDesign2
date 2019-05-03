@@ -43,6 +43,7 @@ public class ItemPickup : Interactables
         {
             Destroy(gameObject);
             pickupPanel.SetActive(false);
+            FindObjectOfType<AudioManager>().Play("Item");
         }
     }
 
