@@ -8,7 +8,7 @@ public class RockThrow : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] Transform target;
     [SerializeField] GameObject unarmed;
-    [SerializeField] GameObject cursor;
+    [SerializeField] GameObject rockTargetCursor;
     [SerializeField] LayerMask layer;
     [SerializeField] Rigidbody rock;
     public Material enemiesDefaultMaterial;
@@ -21,27 +21,27 @@ public class RockThrow : MonoBehaviour
 
     LineRenderer lineRenderer;
 
+    GameObject[] Enemies;
+    Renderer[] enemyRenderer;
+    RockBehaviour rockBehaviour;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         cam = Camera.main;
-        cursor.SetActive(false);
+        rockTargetCursor.SetActive(false);
 
         lineRenderer = GetComponent<LineRenderer>();
         color = new Color(101f, 255f, 0f, 0.5f);
+
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     private void Update()
     {
-        if(Player.instance.itemInHand == null)
-        {
-            Player.instance.itemInHand = unarmed;
-        }
-
         if (Player.instance.itemInHand.name == "Rock(Clone)")
         {
             rock = Player.instance.itemInHand.GetComponent<Rigidbody>();
-			
         }
         else
         {
@@ -50,25 +50,33 @@ public class RockThrow : MonoBehaviour
 
         if (rock != null && Input.GetKey(KeyCode.Mouse0))
         {
-            
+            // The aim was, if the spherecollider attached to the rockTarget component was true, then the drones material could change to the highlighted material when in range
+            // If the collider is false, the drones material resets to default. This is still a bit buggy.
+            rockTargetCursor.GetComponent<SphereCollider>().enabled = true;
+
             // Instantiate rock target
             CalculateDistanceToTarget();
 
             lineRenderer.enabled = true;
 
-            target = cursor.transform;
-            DrawPath();
+            if (debugPath)
+            {
+                target = rockTargetCursor.transform;
+                DrawPath();
+            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 //play throw animation with the launch animation event
                 anim.SetBool("throwRock", true);
-				
             }
         }
         else
         {
-            cursor.SetActive(false);
+            // Here, when the spherecollider is false, the drone's material should be reset to default. This works 90% of the time.
+            rockTargetCursor.GetComponent<SphereCollider>().enabled = false;
+            rockTargetCursor.transform.position = new Vector3(1000, 1000, 1000);
+            //cursor.SetActive(false);
             lineRenderer.enabled = false;
         }
     }
@@ -80,8 +88,8 @@ public class RockThrow : MonoBehaviour
 
         if(Physics.Raycast(camRay, out hit, 100.0f, layer))
         {
-            cursor.SetActive(true);
-            cursor.transform.position = hit.point + Vector3.up * 0.1f;
+            rockTargetCursor.SetActive(true);
+            rockTargetCursor.transform.position = hit.point + Vector3.up * 0.1f;
         }
     }
 
@@ -137,8 +145,6 @@ public class RockThrow : MonoBehaviour
 
     public void LaunchRock()
     {
-        Debug.Log("launching ball");
-
         Physics.gravity = Vector3.up * gravity;
 
         rock.useGravity = true;
@@ -146,7 +152,8 @@ public class RockThrow : MonoBehaviour
         rock.velocity = CalculateLaunchTrajectory().initialVelocity;
 
         //make cursor invisible
-        cursor.SetActive(false);
+        //cursor.SetActive(false);
+        rockTargetCursor.transform.position = new Vector3(1000, 1000, 1000);
 
         //Detach Rock from player's item in hand
         rock.transform.parent = null;
