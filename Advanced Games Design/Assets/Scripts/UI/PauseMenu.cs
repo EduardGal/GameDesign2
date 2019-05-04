@@ -45,12 +45,12 @@
 	 
 	 public void LoadMenu()
 	 {
-		 SceneManager.LoadScene("MainMenu");
+		 SceneManager.LoadScene("Lobby");
 		 
 	 }
 	 public void QuitGame()
 	 {
-		 //Application.Quit();
+		 Application.Quit();
 		 
 	 }
 	 
