@@ -30,7 +30,7 @@ public class EnemyAI : MonoBehaviour
     {
         enemySenses = GetComponent<EnemySenses>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-
+        Debug.Log(currentWaypointIndex);
     }
 
     private void Start()
@@ -166,10 +166,12 @@ public class EnemyAI : MonoBehaviour
             {
                 if (currentWaypointIndex == patrolWayPoints.Length - 1)
                 {
+                    Debug.Log("Made it to the IF statement");
                     currentWaypointIndex = 0;
                 }
                 else
                 {
+                    Debug.Log("Made it here");
                     currentWaypointIndex++;
                 }
 
