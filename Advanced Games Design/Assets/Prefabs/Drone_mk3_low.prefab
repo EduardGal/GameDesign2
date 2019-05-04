@@ -245,17 +245,31 @@ GameObject:
   - component: {fileID: 4147805030706272}
   - component: {fileID: 95079031282340220}
   - component: {fileID: 136797716996915194}
+  - component: {fileID: 3056741117448722915}
   - component: {fileID: 135588289306587326}
+<<<<<<< HEAD
   - component: {fileID: 195478949036632696}
   - component: {fileID: 54168094806207620}
   - component: {fileID: 3385908899232146473}
   - component: {fileID: 114040599637287462}
   - component: {fileID: 114961912878397996}
+=======
+  - component: {fileID: 1074640468414883571}
+  - component: {fileID: 7251113479966374503}
+  - component: {fileID: 195478949036632696}
+  - component: {fileID: 54168094806207620}
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   - component: {fileID: 114815856243459544}
   - component: {fileID: 5955761260227589534}
   - component: {fileID: 650435996}
   - component: {fileID: 7994206059829040406}
+<<<<<<< HEAD
   - component: {fileID: 2590880875434185277}
+=======
+  - component: {fileID: 419470509}
+  - component: {fileID: 419470510}
+  - component: {fileID: 419470497}
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   m_Layer: 13
   m_Name: Drone_mk3_low
   m_TagString: Enemy
@@ -314,6 +328,19 @@ CapsuleCollider:
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3056741117448722915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838735484213520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6e69c0e5c145e40a9a505b0399a767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoppingDistance: 5
 --- !u!135 &135588289306587326
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -324,17 +351,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.19
-  m_Center: {x: 0, y: -0.2, z: 0.42}
---- !u!195 &195478949036632696
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838735484213520}
-  m_Enabled: 1
+<<<<<<< HEAD
   m_AgentTypeID: 0
   m_Radius: 0.06
   m_Speed: 1
@@ -366,6 +383,12 @@ Rigidbody:
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &3385908899232146473
+=======
+  serializedVersion: 2
+  m_Radius: 0.3565626
+  m_Center: {x: -0.000000015583137, y: -0.20000121, z: 0.27393565}
+--- !u!114 &1074640468414883571
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,19 +433,57 @@ MonoBehaviour:
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
   spotlightOffset: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &114961912878397996
 MonoBehaviour:
+=======
+--- !u!195 &195478949036632696
+NavMeshAgent:
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838735484213520}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d6e69c0e5c145e40a9a505b0399a767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 0.08726646
+=======
+  m_AgentTypeID: 0
+  m_Radius: 0.06
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.05
+  m_BaseOffset: 0.3
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &54168094806207620
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838735484213520}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
 --- !u!114 &114815856243459544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,8 +623,117 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+<<<<<<< HEAD
 --- !u!82 &2590880875434185277
 AudioSource:
+=======
+--- !u!33 &419470509
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838735484213520}
+  m_Mesh: {fileID: 0}
+--- !u!82 &419470510
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838735484213520}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0a5938c7d5a87e246bb2f37f898a4e47, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 12
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &419470497
+MonoBehaviour:
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
