@@ -248,10 +248,10 @@ GameObject:
   - component: {fileID: 135588289306587326}
   - component: {fileID: 195478949036632696}
   - component: {fileID: 54168094806207620}
-  - component: {fileID: 9096689063395306744}
-  - component: {fileID: 114040599637287462}
-  - component: {fileID: 114961912878397996}
-  - component: {fileID: 114815856243459544}
+  - component: {fileID: 2371988857909885912}
+  - component: {fileID: 3554608851718596683}
+  - component: {fileID: 4788210716332982737}
+  - component: {fileID: 7342037516068048583}
   - component: {fileID: 5955761260227589534}
   - component: {fileID: 650435996}
   - component: {fileID: 7994206059829040406}
@@ -365,7 +365,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9096689063395306744
+--- !u!114 &2371988857909885912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -386,7 +386,7 @@ MonoBehaviour:
   patrolWayPoints: []
   navMeshAgent: {fileID: 0}
   chaseTimer: 0
---- !u!114 &114040599637287462
+--- !u!114 &3554608851718596683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -408,7 +408,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   spotlightOffset: {x: 0, y: 0, z: 0}
---- !u!114 &114961912878397996
+--- !u!114 &4788210716332982737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 0.08726646
---- !u!114 &114815856243459544
+--- !u!114 &7342037516068048583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,8 +436,8 @@ MonoBehaviour:
   FOVAngle: 110
   isPlayerOneInSight: 0
   isPlayerTwoInSight: 0
-  playerOneLastKnownLocation: {x: 1000, y: 1000, z: 1000}
-  playerTwoLastKnownLocation: {x: 1000, y: 1000, z: 1000}
+  playerOneLastKnownLocation: {x: 0, y: 0, z: 0}
+  playerTwoLastKnownLocation: {x: 0, y: 0, z: 0}
   playerOnePreviousSighting: {x: 0, y: 0, z: 0}
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}

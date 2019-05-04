@@ -45,14 +45,17 @@ public class EnemyAI : MonoBehaviour
     {
         if (enemySenses.isPlayerOneInSight || enemySenses.isPlayerTwoInSight)
         {
+            Debug.Log("Analysing");
             AnalysePlayer();
         }
         else if (enemySenses.playerOneLastKnownLocation != playersLastLocation.resetPosition || enemySenses.playerTwoLastKnownLocation != playersLastLocation.resetPosition)
         {
+            Debug.Log("Chasing");
             ChasePlayer();
         }
         else
         {
+            Debug.Log("Patrolling");
             PatrolWaypoints();
         }
     }
@@ -65,18 +68,24 @@ public class EnemyAI : MonoBehaviour
 
     void ChasePlayer()
     {
+        Debug.Log("Entered first");
         for (int i = 0; i < enemyCount.numberOfEnemies.Length; i++)
         {
+            Debug.Log("Entered second");
             var enemyAIComp = this.enemyCount.numberOfEnemies[i].GetComponent<EnemyAI>();
             Vector3 distanceToPlayerOne = enemySenses.playerOneLastKnownLocation - this.enemyCount.numberOfEnemies[i].transform.position;
             Vector3 distanceToPlayerTwo = enemySenses.playerTwoLastKnownLocation - this.enemyCount.numberOfEnemies[i].transform.position;
 
+
+
             // This *SHOULD* check to see what player is closest to each drone, if player one is closer than this IF statement should run. Keyword *should* 
             if (Vector3.Distance(this.enemyCount.numberOfEnemies[i].transform.position, distanceToPlayerOne) < Vector3.Distance(this.enemyCount.numberOfEnemies[i].transform.position, distanceToPlayerTwo))
             {
+                Debug.Log("Entered third");
                 // If playerone is closer, check to see if they're in range of the enemy
                 if (distanceToPlayerOne.magnitude < maxDistanceFromPlayer)
                 {
+                    Debug.Log("Entered fourth");
                     //Rotate drones to look at playerone's last known location
                     var tarPos = Quaternion.LookRotation(enemySenses.playerOneLastKnownLocation - enemyCount.numberOfEnemies[i].transform.position);
                     enemyCount.numberOfEnemies[i].transform.rotation = Quaternion.RotateTowards(enemyCount.numberOfEnemies[i].transform.rotation, tarPos, 100.0f * Time.deltaTime);
@@ -96,6 +105,7 @@ public class EnemyAI : MonoBehaviour
                 if (enemyAIComp.navMeshAgent.remainingDistance < enemyAIComp.navMeshAgent.stoppingDistance)
                 {
                     enemyAIComp.chaseTimer += Time.deltaTime;
+                    Debug.Log("Calling here:" + enemyAIComp.chaseTimer);
 
                     if (enemyAIComp.chaseTimer > enemyAIComp.chaseWaitTime)
                     {

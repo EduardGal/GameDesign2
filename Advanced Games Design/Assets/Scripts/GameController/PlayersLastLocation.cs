@@ -23,7 +23,7 @@ public class PlayersLastLocation : MonoBehaviour
 
     private void Awake()
     {
-        NetworkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
+        //NetworkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
         GameObject[] alarmLightingObjects = GameObject.FindGameObjectsWithTag(GameTags.alarmLight);
         alarmsLighting = new AlarmsLighting[alarmLightingObjects.Length];
         for (int i = 0; i < alarmsLighting.Length; i++)
@@ -38,12 +38,13 @@ public class PlayersLastLocation : MonoBehaviour
     private void Update()
     {
        
-        playerOnePosition = NetworkManager.playerOne.transform.position;
+        /*playerOnePosition = NetworkManager.playerOne.transform.position;
         playerTwoPosition = NetworkManager.playerTwo.transform.position;
         if (playerTwoPosition == null || playerTwoPosition == new Vector3(1000,1000,1000))
         {
             playerTwoPosition = NetworkManager.playerTwo.transform.position;
-        }
+        }*/
+
         SetAlarms();
     } 
 
