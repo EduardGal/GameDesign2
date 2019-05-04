@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 1629107643665075928}
   m_Layer: 12
   m_Name: PlayerOne 1
-  m_TagString: PlayerOne
+  m_TagString: PlayerTwo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
-  devTesting: 1
+  devTesting: 0
   plCam: {fileID: 3306418361397425493}
 --- !u!114 &7371279433928146324
 MonoBehaviour:
