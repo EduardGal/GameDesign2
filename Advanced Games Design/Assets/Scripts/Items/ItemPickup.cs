@@ -15,13 +15,13 @@ public class ItemPickup : Interactables
 
    
 
-    public void Start()
+    public void Awake()
     {
         networkReference = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
         animationClip = item.animation;
 
         var canvas = GameObject.Find("Canvas");
-        pickupPanel = GameObject.FindGameObjectWithTag("PickupPanel");
+        pickupPanel = GameObject.FindGameObjectWithTag("PickupPannel");
         pickupPanel.SetActive(false);
     }
 
@@ -30,7 +30,7 @@ public class ItemPickup : Interactables
         if(playerOne == null && playerTwo== null)
         {
             playerOne = networkReference.playerOne.transform;
-            playerTwo = networkReference.playerTwo.transform;
+            //playerTwo = networkReference.playerTwo.transform;
 
         }
     }
@@ -53,14 +53,6 @@ public class ItemPickup : Interactables
         if (other.tag == "PlayerOne")
         {
             Debug.Log("Player one has entered");
-            if (pickupPanel != null && Player.instance.itemInHand != this.gameObject)
-            {
-                pickupPanel.SetActive(true);
-            }
-        }
-        if (other.tag == "PlayerTwo")
-        {
-            Debug.Log("Player two has entered");
             if (pickupPanel != null && Player.instance.itemInHand != this.gameObject)
             {
                 pickupPanel.SetActive(true);

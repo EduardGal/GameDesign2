@@ -55,7 +55,4 @@ MonoBehaviour:
   - LoadToFramandi
   - DimScreen
   - CreatePlayer
-  - ChangeBack
-  - ChangeColorToChase
-  - ChangeColorToNormal
   DisableAutoOpenWizard: 1

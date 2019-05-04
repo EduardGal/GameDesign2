@@ -68,7 +68,7 @@ public class PlayerMovement : Photon.MonoBehaviour
         cameraTransform = Camera.main.transform;
         characterController = GetComponent<CharacterController>();
         FindObjectOfType<AudioManager>().Play("OpenInventory");
-        //PhotonView.RPC("Tags", PhotonTargets.AllBufferedViaServer, null);
+        PhotonView.RPC("Tags", PhotonTargets.AllBufferedViaServer, null);
         
     }
 
