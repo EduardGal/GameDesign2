@@ -30,15 +30,15 @@ public class EnemyAI : MonoBehaviour
     {
         enemySenses = GetComponent<EnemySenses>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        Debug.Log(currentWaypointIndex);
+        playerOne = GameObject.FindGameObjectWithTag("PlayerOne").transform;
+        playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
+        playersLastLocation = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayersLastLocation>();
     }
 
     private void Start()
     {
         enemyCount = EnemyCount.instance;
-        playerOne = GameObject.FindGameObjectWithTag("PlayerOne").transform;
-        playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
-        playersLastLocation = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayersLastLocation>();
+
     }
 
     private void Update()
@@ -166,12 +166,10 @@ public class EnemyAI : MonoBehaviour
             {
                 if (currentWaypointIndex == patrolWayPoints.Length - 1)
                 {
-                    Debug.Log("Made it to the IF statement");
                     currentWaypointIndex = 0;
                 }
                 else
                 {
-                    Debug.Log("Made it here");
                     currentWaypointIndex++;
                 }
 

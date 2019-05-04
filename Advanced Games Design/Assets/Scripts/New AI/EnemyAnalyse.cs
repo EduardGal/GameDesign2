@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using NetworkReference;
 
 public class EnemyAnalyse : MonoBehaviour {
 
@@ -20,27 +19,20 @@ public class EnemyAnalyse : MonoBehaviour {
     NavMeshAgent navMeshAgent;
     private Animator anim;
     private BoxCollider boxCollider;
-    public Transform playerOne, playerTwo;
+    private Transform playerOne, playerTwo;
     private bool analysingPlayer;
-    private float playersWarningTimer;
+    private float playerOneWarningTimer, playerTwoWarningTimer;
 
     GameObject spotlightPosition;
     public Vector3 spotlightOffset;
 
-    private networkManager NetworkManager;
-
-
     private void Awake()
-    {
-        NetworkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<networkManager>();
-    }
-    private void Start()
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        playerOne = NetworkManager.playerOne.transform;
-        playerTwo = NetworkManager.playerTwo.transform;
+        playerOne = GameObject.FindGameObjectWithTag("PlayerOne").transform;
+        playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
         startingSpotlightColour = spotlight.color;
         playersLastLocation = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayersLastLocation>();
         //viewAngle = spotlight.spotAngle;
@@ -51,26 +43,47 @@ public class EnemyAnalyse : MonoBehaviour {
 
     private void Update()
     {
+        // If player one is in range, analyse them. (Change drone lighting colour, after X amounts of seconds the game should end, This hasnt been implemented yet)
         if (PlayerOneInRange())
         {
-            playersWarningTimer += Time.deltaTime;
+            this.playerOneWarningTimer += Time.deltaTime;
             AnalysePlayerOne();
-            AnalysePlayerTwo();
+
+            this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
+            this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
         }
         else
         {
-            playersWarningTimer -= Time.deltaTime;
-
+            this.playerOneWarningTimer -= Time.deltaTime;
         }
 
-        playersWarningTimer = Mathf.Clamp(playersWarningTimer, 0, warningDuration);
-        spotlight.color = Color.Lerp(Color.yellow, Color.red, playersWarningTimer / warningDuration);
-
-        if (playersWarningTimer == 0)
+        if (this.playerOneWarningTimer <= 0)
         {
-            spotlight.color = startingSpotlightColour;
+            playerOneWarningTimer = 0;
+            this.spotlight.color = startingSpotlightColour;
         }
-        
+
+        // Analyse Player Two - THIS HAS NOT BEEN TESTED, MAY NEEED TO BE REVISTED. 
+        // It works for player one, so I copied and pasted for player two. Not sure what happens if both players are in range
+        // or if the timer resets when the closest player to the drone changes, or does the timer continue?? 
+        if (PlayerTwoInRange())
+        {
+            this.playerTwoWarningTimer += Time.deltaTime;
+            AnalysePlayerTwo();
+
+            this.playerTwoWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
+            this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerTwoWarningTimer / warningDuration);
+        }
+        else
+        {
+            this.playerTwoWarningTimer -= Time.deltaTime;
+        }
+
+        if (this.playerTwoWarningTimer <= 0)
+        {
+            playerTwoWarningTimer = 0;
+            this.spotlight.color = startingSpotlightColour;
+        }
     }
 
     bool PlayerOneInRange()
@@ -88,8 +101,8 @@ public class EnemyAnalyse : MonoBehaviour {
             }
         }
         return false;
-
     }
+
     bool PlayerTwoInRange()
     {
         if (Vector3.Distance(transform.position, playerTwo.position) < viewDistance)
@@ -105,15 +118,11 @@ public class EnemyAnalyse : MonoBehaviour {
             }
         }
         return false;
-
     }
-
-
 
     void AnalysePlayerOne()
     {
         playersLastLocation.playerOnePosition = playerOne.transform.position;
-
         navMeshAgent.destination = playerOne.transform.position;
         navMeshAgent.stoppingDistance = 7.0f;
         navMeshAgent.speed = followSpeedWhileAnalysing;
@@ -122,7 +131,6 @@ public class EnemyAnalyse : MonoBehaviour {
     void AnalysePlayerTwo()
     {
         playersLastLocation.playerTwoPosition = playerTwo.transform.position;
-
         navMeshAgent.destination = playerTwo.transform.position;
         navMeshAgent.stoppingDistance = 7.0f;
         navMeshAgent.speed = followSpeedWhileAnalysing;
