@@ -17,10 +17,15 @@ public class puzzlePlayerMovment : Photon.MonoBehaviour
 
     void Awake()
     {
+        
+
         body = GetComponent<Rigidbody2D>();
         gameObject.GetComponent<TrailRenderer>().sortingLayerName = ("Defualt");
     }
-
+    private void Start()
+    {
+        photonView.TransferOwnership(PhotonNetwork.player);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +34,10 @@ public class puzzlePlayerMovment : Photon.MonoBehaviour
         {
             Instantiate(triggerObj, this.gameObject.transform.position, Quaternion.identity);
         }
-        CheckInput();
+        if (photonView.isMine)
+        {
+            CheckInput();
+        }
         
         
     }
