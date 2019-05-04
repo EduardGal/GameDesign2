@@ -248,16 +248,22 @@ GameObject:
   - component: {fileID: 3056741117448722915}
   - component: {fileID: 135588289306587326}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 195478949036632696}
   - component: {fileID: 54168094806207620}
   - component: {fileID: 3385908899232146473}
   - component: {fileID: 114040599637287462}
   - component: {fileID: 114961912878397996}
 =======
+=======
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   - component: {fileID: 1074640468414883571}
   - component: {fileID: 7251113479966374503}
   - component: {fileID: 195478949036632696}
   - component: {fileID: 54168094806207620}
+<<<<<<< HEAD
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
+=======
 >>>>>>> parent of 0e75ebb... Updated some components on the Drones
   - component: {fileID: 114815856243459544}
   - component: {fileID: 5955761260227589534}
@@ -352,6 +358,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AgentTypeID: 0
   m_Radius: 0.06
   m_Speed: 1
@@ -385,6 +392,9 @@ Rigidbody:
 --- !u!114 &3385908899232146473
 =======
   serializedVersion: 2
+=======
+  serializedVersion: 2
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   m_Radius: 0.3565626
   m_Center: {x: -0.000000015583137, y: -0.20000121, z: 0.27393565}
 --- !u!114 &1074640468414883571
@@ -434,8 +444,13 @@ MonoBehaviour:
   playerTwo: {fileID: 0}
   spotlightOffset: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &114961912878397996
 MonoBehaviour:
+=======
+--- !u!195 &195478949036632696
+NavMeshAgent:
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
 =======
 --- !u!195 &195478949036632696
 NavMeshAgent:
@@ -447,12 +462,15 @@ NavMeshAgent:
   m_GameObject: {fileID: 1838735484213520}
   m_Enabled: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d6e69c0e5c145e40a9a505b0399a767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 0.08726646
 =======
+=======
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
   m_AgentTypeID: 0
   m_Radius: 0.06
   m_Speed: 1
@@ -483,6 +501,9 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
+>>>>>>> parent of 0e75ebb... Updated some components on the Drones
+=======
 >>>>>>> parent of 0e75ebb... Updated some components on the Drones
 --- !u!114 &114815856243459544
 MonoBehaviour:
