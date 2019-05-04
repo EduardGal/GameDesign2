@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAnalyse : MonoBehaviour {
+public class EnemyAnalyse : Photon.MonoBehaviour {
 
     [SerializeField] float analyseTimer = 5.0f;
     [SerializeField] float warningDuration = 3.5f;
@@ -16,6 +16,7 @@ public class EnemyAnalyse : MonoBehaviour {
     private PlayersLastLocation playersLastLocation;
 
     Color startingSpotlightColour;
+    Vector3 tempColor;
     NavMeshAgent navMeshAgent;
     private Animator anim;
     private BoxCollider boxCollider;
@@ -51,16 +52,20 @@ public class EnemyAnalyse : MonoBehaviour {
 
             this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
+
         }
         else
         {
             this.playerOneWarningTimer -= Time.deltaTime;
+
         }
 
         if (this.playerOneWarningTimer <= 0)
         {
             playerOneWarningTimer = 0;
             this.spotlight.color = startingSpotlightColour;
+
+
         }
 
         // Analyse Player Two - THIS HAS NOT BEEN TESTED, MAY NEEED TO BE REVISTED. 
@@ -73,6 +78,7 @@ public class EnemyAnalyse : MonoBehaviour {
 
             this.playerTwoWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerTwoWarningTimer / warningDuration);
+
         }
         else
         {
@@ -134,5 +140,24 @@ public class EnemyAnalyse : MonoBehaviour {
         navMeshAgent.destination = playerTwo.transform.position;
         navMeshAgent.stoppingDistance = 7.0f;
         navMeshAgent.speed = followSpeedWhileAnalysing;
+    }
+
+
+
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            tempColor = new Vector3(spotlight.color.r, spotlight.color.g, spotlight.color.b);
+            stream.Serialize(ref tempColor);
+        }
+
+        else
+        {
+            
+            stream.Serialize(ref tempColor);
+
+            spotlight.color = new Color(tempColor.x, tempColor.y, tempColor.z, 1f);
+        }
     }
 }
