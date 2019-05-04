@@ -29,7 +29,7 @@ public class enterTreeHouse : MonoBehaviour
     {
         if (other.tag == "PlayerOne" || other.tag == "PlayerTwo")
         {
-            other.GetComponentInChildren<TextMeshProUGUI>().text = (" ");
+            other.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "";
 
         }
     }

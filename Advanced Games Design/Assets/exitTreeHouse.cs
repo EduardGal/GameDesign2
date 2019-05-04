@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class exitTreeHouse : MonoBehaviour
 {
     public Transform groundPos;
-        public GameObject gameObject;
+
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "PlayerOne" || other.tag == "PlayerTwo")
         {
+            other.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Press E to exit tree house";
             if (Input.GetKeyDown(KeyCode.E))
             {
                 other.gameObject.transform.position = groundPos.position;
@@ -19,4 +20,9 @@ public class exitTreeHouse : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        other.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "";
+    }
+
 }
