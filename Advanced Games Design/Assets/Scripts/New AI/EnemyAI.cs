@@ -30,15 +30,15 @@ public class EnemyAI : MonoBehaviour
     {
         enemySenses = GetComponent<EnemySenses>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        playerOne = GameObject.FindGameObjectWithTag("PlayerOne").transform;
-        playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
-        playersLastLocation = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayersLastLocation>();
+
     }
 
     private void Start()
     {
         enemyCount = EnemyCount.instance;
-
+        playerOne = GameObject.FindGameObjectWithTag("PlayerOne").transform;
+        playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo").transform;
+        playersLastLocation = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayersLastLocation>();
     }
 
     private void Update()

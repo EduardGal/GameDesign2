@@ -1915,12 +1915,12 @@ GameObject:
   - component: {fileID: 8582340043541728963}
   - component: {fileID: 8760775447949556636}
   - component: {fileID: 5800655939030401362}
+  - component: {fileID: 7576289700471198534}
   - component: {fileID: 4275368620185146934}
   - component: {fileID: 6999270535204051536}
   - component: {fileID: 4845288860498251707}
   - component: {fileID: 7371279433928146324}
   - component: {fileID: 835466631796256934}
-  - component: {fileID: 2881960438729740169}
   - component: {fileID: 2703863960507593892}
   - component: {fileID: 1629107643665075928}
   m_Layer: 12
@@ -2002,6 +2002,30 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &7576289700471198534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231704078169205671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2733e893a86c149a547133617975e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwHeight: 5
+  gravity: -8
+  target: {fileID: 0}
+  unarmed: {fileID: 1374731569, guid: 9dba02a256f64714f8e5766af0029954, type: 3}
+  rockTargetCursor: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
+  rock: {fileID: 0}
+  enemiesDefaultMaterial: {fileID: 2100000, guid: bc1e686173e4bc64591a304a0f7a08bd,
+    type: 2}
+  debugPath: 1
 --- !u!54 &4275368620185146934
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2160,30 +2184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInHand: {fileID: 1374731569, guid: 9dba02a256f64714f8e5766af0029954, type: 3}
   playersHand: {fileID: 3779401128775956647}
---- !u!114 &2881960438729740169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5231704078169205671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc72e48d42e823c438a7e6f55bdee4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwHeight: 5
-  gravity: -8
-  target: {fileID: 0}
-  unarmed: {fileID: 1374731569, guid: 9dba02a256f64714f8e5766af0029954, type: 3}
-  cursor: {fileID: 0}
-  layer:
-    serializedVersion: 2
-    m_Bits: 2560
-  rock: {fileID: 0}
-  enemiesDefaultMaterial: {fileID: 2100000, guid: bc1e686173e4bc64591a304a0f7a08bd,
-    type: 2}
-  debugPath: 1
 --- !u!114 &2703863960507593892
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class EnemySenses : MonoBehaviour {
     private Animator playerOneAnimator; // This is the players animator
     private Animator playerTwoAnimator;
 
-    private void Awake()
+    private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         sphereCollider = GetComponent<SphereCollider>();
