@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 4695851317298446145}
   - component: {fileID: 4695851317298446144}
   - component: {fileID: 4695851317298446147}
-  - component: {fileID: 4695851317298446146}
   - component: {fileID: 4695851317298446149}
+  - component: {fileID: 6401090110391578521}
   m_Layer: 14
-  m_Name: Rock
+  m_Name: Rock_Prefab
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4695851317298446151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.040166, y: -1.5756944, z: 4.382281}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1.4219089, y: 1.4219089, z: 1.4219089}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,18 +125,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4695851317298446146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695851317298446151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15344e43bff14404fa3b6f35189ae665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4695851317298446149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +137,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b40b0a91febc22419c00a2f6859b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
+  radius: 1.5
   pickupPanel: {fileID: 0}
   item: {fileID: 11400000, guid: 7f2bbbfb88cfe91438afc8aeb4a1d6d8, type: 2}
+--- !u!114 &6401090110391578521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695851317298446151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaf0dcc4ec95c5478284e3773ec5142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockHasBeenThrown: 0

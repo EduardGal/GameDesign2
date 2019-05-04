@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 135588289306587326}
   - component: {fileID: 195478949036632696}
   - component: {fileID: 54168094806207620}
-  - component: {fileID: 3385908899232146473}
+  - component: {fileID: 9096689063395306744}
   - component: {fileID: 114040599637287462}
   - component: {fileID: 114961912878397996}
   - component: {fileID: 114815856243459544}
@@ -308,9 +308,9 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838735484213520}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.06
+  m_Radius: 0.39
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -346,7 +346,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.05
-  m_BaseOffset: 0.3
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &54168094806207620
@@ -365,7 +365,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3385908899232146473
+--- !u!114 &9096689063395306744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,18 +374,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838735484213520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c665f7cbb443b8e4eb26884eeb0e7c47, type: 3}
+  m_Script: {fileID: 11500000, guid: 41e96d2387d91de4f896fc73a0f5a1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 1
   patrolWaitTime: 1.5
   chaseSpeed: 3
-  chaseWaitTime: 5
+  chaseWaitTime: 7.5
   stoppingDistanceFromPlayers: 7
-  patrolWayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  maxDistanceFromPlayer: 20
+  patrolWayPoints: []
+  navMeshAgent: {fileID: 0}
+  chaseTimer: 0
 --- !u!114 &114040599637287462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,8 +407,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
   spotlightOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114961912878397996
 MonoBehaviour:
