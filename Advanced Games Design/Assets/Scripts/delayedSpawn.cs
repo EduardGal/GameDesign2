@@ -23,7 +23,7 @@ public class delayedSpawn : MonoBehaviour
 
     public IEnumerator Delay()
     {
-        Debug.Log("start Delay");
+        
        yield return new WaitForSeconds(3.5f);
 
         foreach (GameObject network in NetworkScripts)
