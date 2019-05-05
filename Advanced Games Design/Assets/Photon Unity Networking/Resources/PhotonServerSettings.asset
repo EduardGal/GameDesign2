@@ -55,4 +55,7 @@ MonoBehaviour:
   - LoadToFramandi
   - DimScreen
   - CreatePlayer
+  - ChangeDown
+  - ChangeUp
+  - Stay
   DisableAutoOpenWizard: 1

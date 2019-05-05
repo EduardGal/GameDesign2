@@ -282,7 +282,7 @@ public class PhotonView : Photon.MonoBehaviour
     ///
     /// The owner/controller of a PhotonView is also the client which sends position updates of the GameObject.
     /// </remarks>
-    public void RequestOwnership()
+    public void RequestOwnership(int v)
     {
         PhotonNetwork.networkingPeer.RequestOwnership(this.viewID, this.ownerId);
     }
