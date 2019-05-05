@@ -7943,6 +7943,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7108286240132621459, guid: 830ebd7b203d2a147b84d1be2141e1f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108286241441184381, guid: 830ebd7b203d2a147b84d1be2141e1f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108286241378724613, guid: 830ebd7b203d2a147b84d1be2141e1f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108286240212808668, guid: 830ebd7b203d2a147b84d1be2141e1f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108286241531919533, guid: 830ebd7b203d2a147b84d1be2141e1f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7108286240127780787, guid: 830ebd7b203d2a147b84d1be2141e1f3,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -82678,30 +82703,30 @@ MonoBehaviour:
         still want to leave tonight while the drones guard the harvesting process?
       duration: 12.170385
       drawAudio: 1
-      lastCalculatedHeight: 108
+      lastCalculatedHeight: 90
       move: 0
     - audio: {fileID: 8300000, guid: 75e1aa4f43d21e547b2e5416b29b1e54, type: 3}
       text: '[Freyja] Let''s go! If we search together we''ll definetely find him.'
       duration: 3.8737414
       drawAudio: 1
-      lastCalculatedHeight: 108
+      lastCalculatedHeight: 90
       move: 0
     - audio: {fileID: 8300000, guid: 5abdd076a5d340147bbc76cd1b0334a0, type: 3}
       text: '[Hekla] I think we should get to the tree house first!'
       duration: 2.1046712
       drawAudio: 1
-      lastCalculatedHeight: 108
+      lastCalculatedHeight: 90
       move: 0
     - audio: {fileID: 8300000, guid: eba83cb555fea1f4590cca11c6cc35c5, type: 3}
       text: '[Freyja] Yeah. You''re right! I think some of our old stuff are there.
         Let''s take the path towards the forest.'
       duration: 5.463175
       drawAudio: 1
-      lastCalculatedHeight: 108
+      lastCalculatedHeight: 90
       move: 0
     LoopAudioForDuration: 0
-    expanded: 1
-    lastCalculatedHeight: 520
+    expanded: 0
+    lastCalculatedHeight: 16
     useSmartSubs: 1
   OnFailure: 0
   OnSuccess: 0
