@@ -2033,8 +2033,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4845288860498251707}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 2
-  instantiationId: 2
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &1629107643665075928
@@ -3230,7 +3230,7 @@ PrefabInstance:
     - target: {fileID: 3277188096694681310, guid: c95ef49c81c2ac94ea5e62da01e047b2,
         type: 3}
       propertyPath: m_Name
-      value: NarrationSystem 1
+      value: NarrationSystem
       objectReference: {fileID: 0}
     - target: {fileID: 4741269847812502378, guid: c95ef49c81c2ac94ea5e62da01e047b2,
         type: 3}
