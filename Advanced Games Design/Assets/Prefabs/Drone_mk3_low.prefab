@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 650435996}
   - component: {fileID: 7994206059829040406}
   - component: {fileID: 2590880875434185277}
+  - component: {fileID: 419470509}
   m_Layer: 13
   m_Name: Drone_mk3_low
   m_TagString: Enemy
@@ -325,8 +326,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.19
-  m_Center: {x: 0, y: -0.2, z: 0.42}
+  m_Radius: 0.29051843
+  m_Center: {x: -0.000000006124111, y: -0.099482015, z: 0.41999996}
 --- !u!195 &195478949036632696
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -383,7 +384,10 @@ MonoBehaviour:
   chaseWaitTime: 7.5
   stoppingDistanceFromPlayers: 7
   maxDistanceFromPlayer: 20
-  patrolWayPoints: []
+  patrolWayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   navMeshAgent: {fileID: 0}
   chaseTimer: 0
 --- !u!114 &3554608851718596683
@@ -477,7 +481,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 4147805030706272}
-  ObservedComponentsFoldoutOpen: 0
+  ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
@@ -572,7 +576,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7248c1318ff585c4ea62105ce1e5b607, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -656,6 +660,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!33 &419470509
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838735484213520}
+  m_Mesh: {fileID: 0}
 --- !u!1001 &3195169017429897394
 PrefabInstance:
   m_ObjectHideFlags: 0

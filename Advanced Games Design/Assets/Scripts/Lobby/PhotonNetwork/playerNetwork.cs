@@ -15,7 +15,7 @@ public class playerNetwork : MonoBehaviour {
         photonView = GetComponent<PhotonView>();
         PlayerName = "Player " + Random.Range(01, 99);
         PhotonNetwork.sendRate = 60;
-        PhotonNetwork.sendRateOnSerialize = 30;
+        PhotonNetwork.sendRateOnSerialize = 60;
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
     }
 
@@ -49,7 +49,7 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        PhotonNetwork.LoadLevel(1);
+     //   PhotonNetwork.LoadLevel(1);
     }
 
     [PunRPC]

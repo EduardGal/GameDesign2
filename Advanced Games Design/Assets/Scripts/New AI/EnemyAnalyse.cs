@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAnalyse : MonoBehaviour {
+public class EnemyAnalyse : Photon.MonoBehaviour {
 
     [SerializeField] float analyseTimer = 5.0f;
     [SerializeField] float warningDuration = 3.5f;
@@ -22,7 +22,7 @@ public class EnemyAnalyse : MonoBehaviour {
     private Transform playerOne, playerTwo;
     private bool analysingPlayer;
     private float playerOneWarningTimer, playerTwoWarningTimer;
-
+    
     GameObject spotlightPosition;
     public Vector3 spotlightOffset;
 
@@ -46,11 +46,13 @@ public class EnemyAnalyse : MonoBehaviour {
         // If player one is in range, analyse them. (Change drone lighting colour, after X amounts of seconds the game should end, This hasnt been implemented yet)
         if (PlayerOneInRange())
         {
+            Debug.Log("PlayerOneInRange");
             this.playerOneWarningTimer += Time.deltaTime;
             AnalysePlayerOne();
 
             this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
+
         }
         else
         {
@@ -59,6 +61,7 @@ public class EnemyAnalyse : MonoBehaviour {
 
         if (this.playerOneWarningTimer <= 0)
         {
+            Debug.Log("out of range");
             playerOneWarningTimer = 0;
             this.spotlight.color = startingSpotlightColour;
         }
@@ -70,7 +73,7 @@ public class EnemyAnalyse : MonoBehaviour {
         {
             this.playerTwoWarningTimer += Time.deltaTime;
             AnalysePlayerTwo();
-
+            Debug.Log("PlayerOneInRange");
             this.playerTwoWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerTwoWarningTimer / warningDuration);
         }
@@ -81,6 +84,7 @@ public class EnemyAnalyse : MonoBehaviour {
 
         if (this.playerTwoWarningTimer <= 0)
         {
+            Debug.Log("out of range");
             playerTwoWarningTimer = 0;
             this.spotlight.color = startingSpotlightColour;
         }
@@ -134,5 +138,21 @@ public class EnemyAnalyse : MonoBehaviour {
         navMeshAgent.destination = playerTwo.transform.position;
         navMeshAgent.stoppingDistance = 7.0f;
         navMeshAgent.speed = followSpeedWhileAnalysing;
+    }
+
+    private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        Vector3 tempCol;
+        if (stream.isWriting)
+        {
+            tempCol = new Vector3(spotlight.color.r, spotlight.color.g, spotlight.color.b);
+            stream.SendNext(tempCol);
+        }
+        else
+        {
+            tempCol = (Vector3)stream.ReceiveNext();
+            spotlight.color = new Color(tempCol.x, tempCol.y, tempCol.z, 1f);
+
+        }
     }
 }
