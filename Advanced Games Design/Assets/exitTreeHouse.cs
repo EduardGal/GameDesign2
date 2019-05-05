@@ -5,6 +5,7 @@ using TMPro;
 
 public class exitTreeHouse : MonoBehaviour
 {
+
     public Transform groundPos;
 
 

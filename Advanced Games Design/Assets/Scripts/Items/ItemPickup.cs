@@ -42,15 +42,16 @@ public class ItemPickup : Interactables
         //Add item to inventory, remove from scene
         if (ItemPickedUp)
         {
+            FindObjectOfType<AudioManager>().Play("Item");
             Destroy(gameObject);
             pickupPanel.SetActive(false);
-            FindObjectOfType<AudioManager>().Play("Item");
+
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerOne")
+        if (other.tag == "PlayerOne" || other.tag == "PlayerTwo")
         {
             Debug.Log("Player one has entered");
             if (pickupPanel != null && Player.instance.itemInHand != this.gameObject)
