@@ -9,17 +9,19 @@ public class switchCharacter : MonoBehaviour
     public bool needChange;
 
 
-
+    private void Awake()
+    {
+        playerOnePref = gameObject.transform.GetChild(0).gameObject;
+        playerTwoPref = gameObject.transform.GetChild(1).gameObject;
+    }
 
     public void ChangeCharacter()
     {
         newtork = GameObject.FindGameObjectWithTag("PlayerNetwork");
 
-        if(PhotonNetwork.player.IsMasterClient) newtork.GetComponent<playerNetwork>().playerListing1 = gameObject.transform.parent.GetChild(0).gameObject;
-        if (!PhotonNetwork.player.IsMasterClient) newtork.GetComponent<playerNetwork>().playerListing2 = gameObject.transform.parent.GetChild(1).gameObject;
 
-       // playerOnePref = gameObject.transform.GetChild(0).gameObject;
-       // playerTwoPref = gameObject.transform.GetChild(1).gameObject;
+
+        
         needChange = true;
 
         if (needChange == true)

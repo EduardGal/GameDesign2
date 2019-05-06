@@ -18,12 +18,10 @@ public class PlayerListing : MonoBehaviour {
         get { return _PlayerName; }
     }
 
-
+    
     public void ApplyPhotonPlayer(PhotonPlayer photonPlayer)
     {
         PlayerNetwork = GameObject.FindGameObjectWithTag("PlayerNetwork");
-        if (PhotonNetwork.player.IsMasterClient) PlayerNetwork.GetComponent<playerNetwork>().playerListing1 = this.gameObject;
-        if (!PhotonNetwork.player.IsMasterClient) PlayerNetwork.GetComponent<playerNetwork>().playerListing2 = this.gameObject;
         PhotonPlayer = photonPlayer;
         PlayerName.text = photonPlayer.NickName;
         if (photonPlayer.IsMasterClient)

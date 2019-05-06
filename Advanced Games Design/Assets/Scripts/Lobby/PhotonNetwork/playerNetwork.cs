@@ -12,7 +12,7 @@ public class playerNetwork : MonoBehaviour {
     public TextMeshProUGUI playernickname;
     public GameObject a, b, c;
     private int PlayersInGame = 0;
-    public GameObject playerListing1, playerListing2;
+    public GameObject playerListing1;
 
 
     private void Awake()
@@ -98,10 +98,9 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     public void ChangeCharacter()
     {
-        playerListing1.transform.parent.GetChild(0).GetComponent<switchCharacter>().ChangeCharacter();
-        playerListing1.transform.parent.GetChild(1).GetComponent<switchCharacter>().ChangeCharacter();
-        playerListing2.transform.parent.GetChild(0).GetComponent<switchCharacter>().ChangeCharacter();
-        playerListing2.transform.parent.GetChild(1).GetComponent<switchCharacter>().ChangeCharacter();
+        playerListing1.transform.GetChild(0).GetComponent<switchCharacter>().ChangeCharacter();
+        playerListing1.transform.GetChild(1).GetComponent<switchCharacter>().ChangeCharacter();
+
     }
 
 }

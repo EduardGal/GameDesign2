@@ -90,6 +90,7 @@ public class PlayerLayoutGroup : MonoBehaviour {
     private void OnMasterClientSwitched(PhotonPlayer newMasterClient)
     {
         PhotonNetwork.LeaveRoom();
+        currentRoom.SetActive(false);
     }
     private void OnPhotonPlayerConnected(PhotonPlayer photonPlayer)
     {

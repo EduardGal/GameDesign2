@@ -3417,7 +3417,7 @@ MonoBehaviour:
   a: {fileID: 1636143604}
   b: {fileID: 1133033669}
   c: {fileID: 1466173640}
-  playerListing: {fileID: 0}
+  playerListing1: {fileID: 1974350551}
 --- !u!4 &646098973
 Transform:
   m_ObjectHideFlags: 0
@@ -6136,7 +6136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000011259653, y: -0.00010524902}
+  m_AnchoredPosition: {x: 0.000011259653, y: -0.00018446386}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1196592705
