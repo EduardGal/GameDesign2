@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 755985298952346184}
   - component: {fileID: 755985298952346185}
   - component: {fileID: 755985298952346186}
-  - component: {fileID: 755985298952346187}
   - component: {fileID: 755985298952346188}
+  - component: {fileID: 897550097031765864}
   m_Layer: 14
   m_Name: Rock
   m_TagString: Interactable
@@ -125,18 +125,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &755985298952346187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755985298952346190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15344e43bff14404fa3b6f35189ae665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &755985298952346188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +140,16 @@ MonoBehaviour:
   radius: 1
   pickupPanel: {fileID: 0}
   item: {fileID: 11400000, guid: 7f2bbbfb88cfe91438afc8aeb4a1d6d8, type: 2}
+--- !u!114 &897550097031765864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755985298952346190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaf0dcc4ec95c5478284e3773ec5142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockHasBeenThrown: 0
