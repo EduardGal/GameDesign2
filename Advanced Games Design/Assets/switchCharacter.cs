@@ -30,6 +30,7 @@ public class switchCharacter : MonoBehaviour
             {
                 playerTwoPref.SetActive(true);
                 playerOnePref.SetActive(false);
+                newtork.GetComponent<playerNetwork>().hostIsPlayerOne = false;
                 needChange = false;
             }
         }
@@ -39,6 +40,7 @@ public class switchCharacter : MonoBehaviour
             {
                 playerOnePref.SetActive(true);
                 playerTwoPref.SetActive(false);
+                newtork.GetComponent<playerNetwork>().hostIsPlayerOne = true;
                 needChange = false;
             }
         }

@@ -8,11 +8,12 @@ public class playerNetwork : MonoBehaviour {
     public static playerNetwork Instance;
     public string PlayerName { get; private set; }
     private PhotonView photonView;
-    public GameObject player;
+    public GameObject player, player2;
     public TextMeshProUGUI playernickname;
     public GameObject a, b, c;
     private int PlayersInGame = 0;
     public GameObject playerListing1, currentRoom;
+    public bool hostIsPlayerOne;
 
 
     private void Awake()
@@ -74,8 +75,32 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        PhotonNetwork.Instantiate(player.name, new Vector3(-2,0,0), Quaternion.identity, 0);
-        
+        if (hostIsPlayerOne)
+        {
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(player.name, new Vector3(-2, 0, 0), Quaternion.identity, 0);
+            }
+            if (!PhotonNetwork.player.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(player2.name, new Vector3(3, 0, 0), Quaternion.identity, 0);
+            }
+
+        }
+        if (!hostIsPlayerOne)
+        {
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(player2.name, new Vector3(-2, 0, 0), Quaternion.identity, 0);
+            }
+            if (!PhotonNetwork.player.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(player.name, new Vector3(3, 0, 0), Quaternion.identity, 0);
+            }
+
+        }
+
+
     }
 
     public void OnCreateUsername()

@@ -79,12 +79,10 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
             AnalysePlayerTwo();
             Debug.Log("PlayerOneInRange");
             this.playerTwoWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
-            GetComponent<PhotonView>().RPC("ChangeUp", PhotonTargets.AllViaServer);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerTwoWarningTimer / warningDuration);
         }
         else
         {
-            GetComponent<PhotonView>().RPC("ChangeDown", PhotonTargets.AllViaServer);
             this.playerTwoWarningTimer -= Time.deltaTime;
         }
 
@@ -92,7 +90,6 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         {
             Debug.Log("out of range");
             playerTwoWarningTimer = 0;
-            GetComponent<PhotonView>().RPC("Stay", PhotonTargets.AllViaServer);
             this.spotlight.color = startingSpotlightColour;
         }
     }
@@ -147,37 +144,10 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         navMeshAgent.speed = followSpeedWhileAnalysing;
     }
 
-    [PunRPC]
-    private void ChangeUp()
-    {
-        this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
-    }
-    [PunRPC]
-    private void ChangeDown()
-    {
-        this.playerOneWarningTimer -= Time.deltaTime;
-    }
-    [PunRPC]
-    private void Stay()
-    {
-        this.spotlight.color = startingSpotlightColour;
-    }
+
 
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        Vector3 tempCol;
-        if (stream.isWriting)
-        {
-            tempCol = new Vector3(spotlight.color.r, spotlight.color.g, spotlight.color.b);
-            stream.SendNext(tempCol);
 
-            
-        }
-        else
-        {
-            tempCol = (Vector3)stream.ReceiveNext();
-            spotlight.color = new Color(tempCol.x, tempCol.y, tempCol.z, 1f);
-
-        }
     }
 }
