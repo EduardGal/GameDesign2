@@ -98,7 +98,7 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     public void ChangeCharacter()
     {
-        playerListing.GetComponent<PlayerListing>().ChangeCharacter();
+        playerListing.GetComponent<switchCharacter>().ChangeCharacter();
     }
 
 }

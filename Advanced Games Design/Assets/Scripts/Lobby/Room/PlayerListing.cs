@@ -42,59 +42,7 @@ public class PlayerListing : MonoBehaviour {
     
 
 
-    [PunRPC]
-    public void ChangeCharacter()
-    {
 
-        if (PhotonNetwork.player.IsMasterClient)
-        {
-            if (masterIsSisterOne)
-            {
-                sisterOne.SetActive(false);
-                sisterTwo.SetActive(true);
-                masterToTwo = true;
-            }
-                
-            }
-            if(!masterIsSisterOne)
-            {
-                sisterOne.SetActive(true);
-                sisterTwo.SetActive(false);
-                masterToTwo = false;
-               
-            }
-
-        if (!PhotonNetwork.player.IsMasterClient)
-        {
-            if (clientIsSisterTwo)
-            {
-                sisterOne.SetActive(true);
-                sisterTwo.SetActive(false);
-                masterToTwo = false;
-            }
-            if (!clientIsSisterTwo)
-            {
-                sisterOne.SetActive(false);
-                sisterTwo.SetActive(true);
-                masterToTwo = true;
-            }
-
-        }
-        
-
-        if(masterToTwo == true)
-        {
-            clientIsSisterTwo = false;
-            masterIsSisterOne = false;
-            masterToTwo = false;
-        }
-        else
-        {
-            clientIsSisterTwo = true;
-            masterIsSisterOne = true;
-            
-        }
-    }
         
     
 
