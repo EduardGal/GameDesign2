@@ -12,6 +12,9 @@ public class playerNetwork : MonoBehaviour {
     public TextMeshProUGUI playernickname;
     public GameObject a, b, c;
     private int PlayersInGame = 0;
+    public GameObject playerListing;
+
+
     private void Awake()
     {
         Instance = this;
@@ -84,6 +87,18 @@ public class playerNetwork : MonoBehaviour {
         c.SetActive(true);
         playernickname.transform.parent.transform.parent.transform.parent.gameObject.SetActive(false);
 
+    }
+
+    
+    public void OnChangeCharacterClick()
+    {
+        photonView.RPC("ChangeCharacter", PhotonTargets.AllViaServer);
+    }
+
+    [PunRPC]
+    public void ChangeCharacter()
+    {
+        playerListing.GetComponent<PlayerListing>().ChangeCharacter();
     }
 
 }
