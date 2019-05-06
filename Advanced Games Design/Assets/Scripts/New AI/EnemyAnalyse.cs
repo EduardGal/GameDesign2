@@ -52,13 +52,11 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
             AnalysePlayerOne();
 
             this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
-            GetComponent<PhotonView>().RPC("ChangeUp", PhotonTargets.AllViaServer);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
 
         }
         else
         {
-            GetComponent<PhotonView>().RPC("ChangeDown", PhotonTargets.AllViaServer);
             this.playerOneWarningTimer -= Time.deltaTime;
         }
 
@@ -66,7 +64,6 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         {
             Debug.Log("out of range");
             playerOneWarningTimer = 0;
-            GetComponent<PhotonView>().RPC("Stay", PhotonTargets.AllViaServer);
             this.spotlight.color = startingSpotlightColour;
         }
 
@@ -77,7 +74,7 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         {
             this.playerTwoWarningTimer += Time.deltaTime;
             AnalysePlayerTwo();
-            Debug.Log("PlayerOneInRange");
+            Debug.Log("PlayerTwoInRange");
             this.playerTwoWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerTwoWarningTimer / warningDuration);
         }

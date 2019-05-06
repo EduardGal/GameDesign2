@@ -55,9 +55,6 @@ MonoBehaviour:
   - LoadToFramandi
   - DimScreen
   - CreatePlayer
-  - ChangeDown
-  - ChangeUp
-  - Stay
   - ChangeCharacter
   - OnChangeCharacterClick
   - OnKicked
