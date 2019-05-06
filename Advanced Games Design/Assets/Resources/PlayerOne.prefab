@@ -6161,8 +6161,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4706987140744308750}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 3
+  instantiationId: 3
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &6062565324036079489
@@ -9560,8 +9560,8 @@ MonoBehaviour:
   pitchMinMax: {x: -60, y: 70}
   lockCursor: 1
   changeTransparency: 1
-  bodyRenderer: {fileID: 0}
-  jointsRenderer: {fileID: 0}
+  bodyRenderer: {fileID: 5785148884983090641}
+  jointsRenderer: {fileID: 5562159658617911458}
   cameraMoveSpeed: 20
   returnToOriginalSpeed: 15
   wallPush: 0.7
