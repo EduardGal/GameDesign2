@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class kickPlayer : Photon.MonoBehaviour
+
 {
+
+    public GameObject currentRoom;
+    public GameObject network;
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        network = GameObject.FindGameObjectWithTag("PlayerNetwork");
+    }
     void Update()
     {
         if (PhotonNetwork.player.IsMasterClient)
@@ -16,12 +25,9 @@ public class kickPlayer : Photon.MonoBehaviour
 
 
     public void OnKickPlayer()
-    {
-      
-
-            PhotonNetwork.CloseConnection(PhotonPlayer.Find(2));
-
-       
+    {     
+        PhotonNetwork.CloseConnection(PhotonPlayer.Find(2));
+        network.GetComponent<playerNetwork>().OnKick();
     }
 
 }

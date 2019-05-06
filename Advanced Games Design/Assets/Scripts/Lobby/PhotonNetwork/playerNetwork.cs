@@ -12,7 +12,7 @@ public class playerNetwork : MonoBehaviour {
     public TextMeshProUGUI playernickname;
     public GameObject a, b, c;
     private int PlayersInGame = 0;
-    public GameObject playerListing1;
+    public GameObject playerListing1, currentRoom;
 
 
     private void Awake()
@@ -101,6 +101,20 @@ public class playerNetwork : MonoBehaviour {
         playerListing1.transform.GetChild(0).GetComponent<switchCharacter>().ChangeCharacter();
         playerListing1.transform.GetChild(1).GetComponent<switchCharacter>().ChangeCharacter();
 
+    }
+
+
+    public void OnKick()
+    {
+        photonView.RPC("OnKicked", PhotonTargets.Others);
+    }
+    [PunRPC]
+    public void OnKicked()
+    {
+        if (!PhotonNetwork.player.IsMasterClient)
+        {
+            currentRoom.SetActive(false);
+        }
     }
 
 
