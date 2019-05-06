@@ -141,10 +141,4 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         navMeshAgent.speed = followSpeedWhileAnalysing;
     }
 
-
-
-    private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-
-    }
 }

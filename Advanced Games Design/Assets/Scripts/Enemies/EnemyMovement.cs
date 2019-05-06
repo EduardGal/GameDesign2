@@ -79,23 +79,5 @@ public class EnemyMovement : MonoBehaviour {
         return angleToPlayers;
     }
 
-    private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            //THIS IS OUR PLAYER
-         //  stream.SendNext(transform.position);
-         //   stream.SendNext(transform.rotation);
-          //  stream.SendNext(anim.GetFloat("Speed"));
-          //  stream.SendNext(anim.GetFloat("AngularSpeed"));
-          //  stream.SendNext(anim.GetBool("PlayerInSight"));
-          //  stream.SendNext(anim.GetBool("HasBeenCaught"));
-
-        }
-        else
-        {
-            //THIS IS OTHER COOP PLAYER
-
-        }
-    }
+    
 }

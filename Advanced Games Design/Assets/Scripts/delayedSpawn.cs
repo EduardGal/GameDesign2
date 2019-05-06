@@ -9,7 +9,7 @@ public class delayedSpawn : MonoBehaviour
 
     public GameObject[] drones;
     public GameObject[] NetworkScripts;
-    public GameObject narrative;
+    public GameObject[] narrative;
 
     // Start is called before the first frame update 
 
@@ -27,7 +27,11 @@ public class delayedSpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
 
-        narrative.SetActive(true);
+        foreach(GameObject nar in narrative)
+        {
+            nar.SetActive(true);
+        }
+        
         //Debug.Log("start Delay");
        yield return new WaitForSeconds(3.5f);
 

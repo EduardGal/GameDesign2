@@ -37,7 +37,7 @@ public class InteractableManager : MonoBehaviour {
             playerCanPickup = false;
         }
 
-        Debug.Log(playerCanPickup);
+        //Debug.Log(playerCanPickup);
     }
 
     public void PickupItemAnimation()

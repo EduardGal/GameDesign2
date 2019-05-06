@@ -148,6 +148,7 @@ public class PlayerMovement : Photon.MonoBehaviour
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(animator.GetFloat("speedPercent"));
+            stream.SendNext(animator.GetBool("pickupItem"));
 
         }
         else
@@ -157,6 +158,7 @@ public class PlayerMovement : Photon.MonoBehaviour
             realRotation = (Quaternion)stream.ReceiveNext();
 
             animator.SetFloat("speedPercent", (float)stream.ReceiveNext());
+            animator.SetBool("pickupItem", (bool)stream.ReceiveNext());
         }
     }
 }
