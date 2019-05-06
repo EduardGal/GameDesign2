@@ -2320,8 +2320,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114306699007235824}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 8
-  instantiationId: 8
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114318460347598956
@@ -2361,6 +2361,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playernickname: {fileID: 0}
+  a: {fileID: 0}
+  b: {fileID: 0}
+  c: {fileID: 0}
 --- !u!1 &1874747886627918
 GameObject:
   m_ObjectHideFlags: 0

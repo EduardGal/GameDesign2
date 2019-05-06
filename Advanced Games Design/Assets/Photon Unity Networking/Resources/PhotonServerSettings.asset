@@ -58,4 +58,6 @@ MonoBehaviour:
   - ChangeDown
   - ChangeUp
   - Stay
+  - ChangeCharacter
+  - OnChangeCharacterClick
   DisableAutoOpenWizard: 1

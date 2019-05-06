@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class playerNetwork : MonoBehaviour {
 
@@ -8,7 +9,12 @@ public class playerNetwork : MonoBehaviour {
     public string PlayerName { get; private set; }
     private PhotonView photonView;
     public GameObject player;
+    public TextMeshProUGUI playernickname;
+    public GameObject a, b, c;
     private int PlayersInGame = 0;
+    public GameObject playerListing;
+
+
     private void Awake()
     {
         Instance = this;
@@ -70,6 +76,29 @@ public class playerNetwork : MonoBehaviour {
     {
         PhotonNetwork.Instantiate(player.name, new Vector3(-2,0,0), Quaternion.identity, 0);
         
+    }
+
+    public void OnCreateUsername()
+    {
+
+        PhotonNetwork.player.NickName = playernickname.text;
+        a.SetActive(true);
+        b.SetActive(true);
+        c.SetActive(true);
+        playernickname.transform.parent.transform.parent.transform.parent.gameObject.SetActive(false);
+
+    }
+
+    
+    public void OnChangeCharacterClick()
+    {
+        photonView.RPC("ChangeCharacter", PhotonTargets.AllViaServer);
+    }
+
+    [PunRPC]
+    public void ChangeCharacter()
+    {
+        playerListing.GetComponent<switchCharacter>().ChangeCharacter();
     }
 
 }
