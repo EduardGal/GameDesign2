@@ -18,7 +18,13 @@ public class PlayerListing : MonoBehaviour {
         get { return _PlayerName; }
     }
 
+
+    public void Start()
+    {
     
+       
+    }
+
     public void ApplyPhotonPlayer(PhotonPlayer photonPlayer)
     {
         PlayerNetwork = GameObject.FindGameObjectWithTag("PlayerNetwork");
@@ -38,13 +44,18 @@ public class PlayerListing : MonoBehaviour {
         }
     }
 
-    
+    public void OnKickPlayer()
+    {
+
+        PhotonNetwork.CloseConnection(PhotonPlayer.Find(1));
+
+    }
 
 
 
-        
-    
 
 
-    
+
+
+
 }

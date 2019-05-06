@@ -7,6 +7,14 @@ public class InteractableManager : MonoBehaviour {
     
     private float distance;
     private bool trigger;
+    private bool playerCanPickup = false;
+
+    Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -18,10 +26,30 @@ public class InteractableManager : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    collider.gameObject.GetComponent<ItemPickup>().PickUpItem();
+                    //collider.gameObject.GetComponent<ItemPickup>().PickUpItem();
+                    playerCanPickup = true;
+                    PickupItemAnimation();
                 }
             }
         }
+        else
+        {
+            playerCanPickup = false;
+        }
+
+        Debug.Log(playerCanPickup);
+    }
+
+    public void PickupItemAnimation()
+    {
+        if (playerCanPickup)
+        {
+            animator.SetBool("pickupItem", true);
+            collider.gameObject.GetComponent<ItemPickup>().PickUpItem();
+        }
+
+        playerCanPickup = false;
+        animator.SetBool("pickupItem", false);
     }
 
     private void OnTriggerEnter(Collider other)
