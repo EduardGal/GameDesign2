@@ -61,4 +61,5 @@ MonoBehaviour:
   - ChangeCharacter
   - OnChangeCharacterClick
   - OnKicked
+  - FadeTo
   DisableAutoOpenWizard: 1
