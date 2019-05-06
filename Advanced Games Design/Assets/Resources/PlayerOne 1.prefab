@@ -361,7 +361,7 @@ MonoBehaviour:
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
-  devTesting: 1
+  devTesting: 0
   plCam: {fileID: 3306418361397425493}
 --- !u!114 &7371279433928146324
 MonoBehaviour:
@@ -462,6 +462,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: throwRock
+  - Type: 4
+    SynchronizeType: 0
+    Name: pickupItem
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -859,6 +862,11 @@ PrefabInstance:
       propertyPath: jointsRenderer
       value: 
       objectReference: {fileID: 7270054327462062976}
+    - target: {fileID: 2860480775848622971, guid: 32647a4e8d734b74a8b4965711b03fc4,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32647a4e8d734b74a8b4965711b03fc4, type: 3}
 --- !u!1 &3306418361397425493 stripped
