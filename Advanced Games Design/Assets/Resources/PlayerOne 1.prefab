@@ -361,7 +361,7 @@ MonoBehaviour:
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
-  devTesting: 0
+  devTesting: 1
   plCam: {fileID: 3306418361397425493}
 --- !u!114 &7371279433928146324
 MonoBehaviour:
