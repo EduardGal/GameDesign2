@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 57.69902, y: 48.964584}
-  m_SizeDelta: {x: 1470, y: 405}
+  m_AnchoredPosition: {x: 57.69902, y: 49.023407}
+  m_SizeDelta: {x: 1470, y: 407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1375
 Canvas:
@@ -231,7 +231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 238, y: 545}
+  m_AnchoredPosition: {x: -40, y: 756}
   m_SizeDelta: {x: 775.7, y: 110.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1374
@@ -342,10 +342,6 @@ PrefabInstance:
     - target: {fileID: 100026, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
       propertyPath: m_Name
       value: Sister_1_StandardIdle_FIX
-      objectReference: {fileID: 0}
-    - target: {fileID: 100026, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
       propertyPath: m_Controller
