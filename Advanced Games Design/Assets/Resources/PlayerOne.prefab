@@ -9556,7 +9556,7 @@ MonoBehaviour:
   distanceFromTarget: 2
   cameraHeightToPlayer: 1.5
   rotationSmoothTime: 13
-  cameraTarget: {fileID: 0}
+  cameraTarget: {fileID: 5540745827658594080}
   pitchMinMax: {x: -60, y: 70}
   lockCursor: 1
   changeTransparency: 1
