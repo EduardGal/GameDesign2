@@ -3541,13 +3541,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566ba9b852967014ea40d40b227c0da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5231704078169205671, guid: f6788081c5e95834cb2ad6cb2efa519e, type: 3}
+  player: {fileID: 5465956868611758949, guid: 621cbb91de94f7940b7d8f3017217c10, type: 3}
+  player2: {fileID: 1775284156130328602, guid: a0f8d1930018d1144816d7772c70f7a9, type: 3}
   playernickname: {fileID: 1955262257}
   a: {fileID: 1636143604}
   b: {fileID: 1133033669}
   c: {fileID: 1466173640}
   playerListing1: {fileID: 1974350551}
   currentRoom: {fileID: 665724872}
+  hostIsPlayerOne: 0
 --- !u!4 &646098973
 Transform:
   m_ObjectHideFlags: 0
@@ -6282,7 +6284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000011259653, y: -0.000103228886}
+  m_AnchoredPosition: {x: 0.000011259653, y: -0.00017266936}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1196592705
