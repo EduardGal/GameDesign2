@@ -19,6 +19,7 @@ public class onPuzzleDone : MonoBehaviour
         if(playerCount == 2)
         {
             Debug.LogWarning("Puzzle Done");
+            transform.parent.gameObject.SetActive(true);
         }
     }
 }

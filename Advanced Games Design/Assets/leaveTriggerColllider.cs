@@ -7,7 +7,7 @@ public class leaveTriggerColllider : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "PuzzlePlayer")
+        if (collision.tag == "PuzzlePlayer" || collision.tag == "PuzzlePlayer2")
         {
             GetComponent<BoxCollider2D>().isTrigger = false;
         }

@@ -16,7 +16,7 @@ public class puzzleTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 puzzleCanvas.SetActive(true);
-                other.gameObject.SetActive(false);
+                //other.gameObject.SetActive(false);
                 GetComponent<PhotonView>().RPC("OnPuzzleStart", PhotonTargets.AllViaServer);
                 
             }
