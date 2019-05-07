@@ -53,9 +53,9 @@ public class screenDim : Photon.MonoBehaviour
         }
         if (playerOne != null && playerTwo != null)
         {
-           StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
+           // StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
         }
-        
+        StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
 
     }
 
@@ -80,7 +80,7 @@ public class screenDim : Photon.MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         cg.gameObject.SetActive(false);
-        narSystem.SetActive(true);
+
         
 
 

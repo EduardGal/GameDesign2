@@ -35,13 +35,13 @@ public class changeCharacter : MonoBehaviour
         {
             Debug.LogWarning("CHANGING CHARACTER");
             Animator animator = gameObject.GetComponent<Animator>();
-            if (PhotonNetwork.player.IsMasterClient)
+            if (!PhotonNetwork.player.IsMasterClient)
             {
                 sisterOne.SetActive(true);
                 GetComponent<Animator>().avatar = avatar_playerOne;
                 this.GetComponent<Animator>().runtimeAnimatorController = anim1 as RuntimeAnimatorController;
             }
-            if (!PhotonNetwork.player.IsMasterClient)
+            if (PhotonNetwork.player.IsMasterClient)
             {
                 sisterTwo.SetActive(true);
                 GetComponent<Animator>().avatar = avatar_playerTwo;
