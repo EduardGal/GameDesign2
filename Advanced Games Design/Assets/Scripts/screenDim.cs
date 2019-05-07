@@ -8,7 +8,7 @@ public class screenDim : Photon.MonoBehaviour
 
 
 {
-
+    public CanvasGroup uiElement;
     AsyncOperation sync;
     public GameObject narSystem;
     public GameObject dimImage;
@@ -26,9 +26,11 @@ public class screenDim : Photon.MonoBehaviour
 
     }
 
-
+    public bool devTesting;
     void Update()
     {
+        if(devTesting) StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
+
         if (playerOne == null || playerTwo == null)
         {
             if (playerOne == null)
@@ -49,21 +51,37 @@ public class screenDim : Photon.MonoBehaviour
                 }
             }
         }
-        StartCoroutine(StartGame(0, 3));
+        StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
 
 
     }       
         
-    IEnumerator StartGame(float aValue, float aTime)
+    IEnumerator StartGame(CanvasGroup cg, float start, float end, float lerpTime = .5f)
     {
-        float alpha = dimImage.GetComponent<RawImage>().color.a;
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        Debug.LogWarning("StartingGame");
+
+       
+
+        while (true)
         {
-            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
-            dimImage.GetComponent<RawImage>().color = newColor;
-            narSystem.SetActive(true);
-            yield return null;
+         
+
+            float currentValue = Mathf.Lerp(start, end, 1*Time.deltaTime);
+
+            cg.alpha = currentValue;
+
+            if (cg.alpha == 0) break;
+            yield return new WaitForEndOfFrame();
         }
+
+        if (GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().startAtCheckpoint)
+        {
+            this.GetComponent<PhotonView>().photonView.RPC("DimScreenCheckPoint", PhotonTargets.AllViaServer, null);
+        }
+        
+
+
+
     }
 
     public void ChangeToFramandi()
@@ -72,6 +90,45 @@ public class screenDim : Photon.MonoBehaviour
             this.GetComponent<PhotonView>().photonView.RPC("DimScreen", PhotonTargets.AllViaServer, null);
         Debug.LogWarning("Changing Scene");
 
+    }
+
+    [PunRPC]
+    public IEnumerator DimScreenCheckPoint()
+    {
+
+        yield return new WaitForSeconds(0.2f);
+
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
+        yield return new WaitForSeconds(.1f);
+
+
+
+        foreach (GameObject players in playersInGame)
+        {
+            players.transform.position = new Vector3(127, 2.9f, 155);
+            SceneManager.MoveGameObjectToScene(players, SceneManager.GetSceneByName("Framandi v1"));
+        }
+
+
+
+
+        yield return new WaitForSeconds(.1f);
+
+
+        Debug.LogWarning("SetScene");
+        //this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        int c = SceneManager.sceneCount;
+        for (int i = 0; i < c; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            print(scene.name);
+            if (scene.name != "Framandi v1")
+            {
+                SceneManager.UnloadSceneAsync(scene);
+                Debug.LogWarning("Unloaded");
+            }
+        }
     }
 
     [PunRPC]
@@ -88,8 +145,8 @@ public class screenDim : Photon.MonoBehaviour
 
             foreach(GameObject players in playersInGame)
             {
-                players.transform.position = new Vector3(41, 5f, 260);
-                SceneManager.MoveGameObjectToScene(players, SceneManager.GetSceneByName("Framandi v1"));
+            players.transform.position = new Vector3(Random.RandomRange(36, 42), 5f, 260);
+            SceneManager.MoveGameObjectToScene(players, SceneManager.GetSceneByName("Framandi v1"));
             }
           
 
