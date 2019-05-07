@@ -51,7 +51,10 @@ public class screenDim : Photon.MonoBehaviour
                 }
             }
         }
-        StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
+        if (playerOne != null && playerTwo != null)
+        {
+            StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
+        }
 
 
     }       
