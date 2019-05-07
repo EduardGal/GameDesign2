@@ -4378,6 +4378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loading: {fileID: 697403625}
   StartMatch: {fileID: 138431266}
+  CheckpointDropDown: {fileID: 1935854226}
 --- !u!114 &665724875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7061,7 +7062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000011259653, y: -0.000086795604}
+  m_AnchoredPosition: {x: 0.000011259653, y: -0.00008505571}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1196592705
@@ -11168,7 +11169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000011259653, y: 0.000033411616}
+  m_AnchoredPosition: {x: 0.000011259653, y: 0.000022597964}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1974350553

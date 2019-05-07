@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CurrentRoomCanvas : Photon.MonoBehaviour {
 
     public GameObject loading;
     public GameObject StartMatch;
+    public GameObject CheckpointDropDown;
     public void OnClickStartSync()
     {
         if (!PhotonNetwork.isMasterClient)
@@ -24,7 +26,10 @@ public class CurrentRoomCanvas : Photon.MonoBehaviour {
     {
         
        // SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
-
+        if(CheckpointDropDown.GetComponent<Dropdown>().value == 1)
+        {
+            GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().startAtCheckpoint = true;
+        }
         PhotonNetwork.room.IsOpen = false;
         PhotonNetwork.room.IsVisible = false;
         loading.SetActive(true);

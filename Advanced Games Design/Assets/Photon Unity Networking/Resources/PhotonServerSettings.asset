@@ -62,4 +62,5 @@ MonoBehaviour:
   - M_ChangeTags
   - M_Checkpoint1
   - M_StartAtCheckpoint
+  - DimScreenCheckPoint
   DisableAutoOpenWizard: 1
