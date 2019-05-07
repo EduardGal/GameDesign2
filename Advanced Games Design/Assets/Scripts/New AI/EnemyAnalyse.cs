@@ -49,7 +49,7 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         
         if(playerTwoWarningTimer >= 5 || playerOneWarningTimer >= 5)
         {
-            GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().GameOver(playerOne.gameObject, playerTwo.gameObject);
+            GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().GameOver();
             GameObject[] bots = GameObject.FindGameObjectsWithTag("Enemy");
             
             foreach(GameObject go in bots)
