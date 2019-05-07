@@ -9,7 +9,7 @@ public class puzzlePlayerMovment : Photon.MonoBehaviour
     float horizontal;
     float vertical;
     public bool devTesting;
-
+    public Vector3 startPos;
     public GameObject triggerObj;
 
 
@@ -24,13 +24,25 @@ public class puzzlePlayerMovment : Photon.MonoBehaviour
     }
     private void Start()
     {
-        photonView.TransferOwnership(PhotonNetwork.player);
+
+        if (!devTesting)
+        {
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                photonView.TransferOwnership(PhotonNetwork.player);
+            }
+        }
+        if (devTesting && !PhotonNetwork.player.IsMasterClient)
+        {
+            photonView.TransferOwnership(PhotonNetwork.player);
+        }
+        transform.position = startPos;
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if(gameObject.GetComponent<Rigidbody2D>().velocity != new Vector2(0, 0))
+
+        if (gameObject.GetComponent<Rigidbody2D>().velocity != new Vector2(0, 0))
         {
             Instantiate(triggerObj, this.gameObject.transform.position, Quaternion.identity);
         }

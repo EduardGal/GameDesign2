@@ -65,4 +65,5 @@ MonoBehaviour:
   - DimScreenCheckPoint
   - M_GameOver
   - M_OnGameOver
+  - OnPuzzleStart
   DisableAutoOpenWizard: 1

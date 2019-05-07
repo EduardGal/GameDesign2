@@ -20,6 +20,7 @@ TagManager:
   - DimCanvas
   - PuzzlePlayer
   - PlayerNetwork
+  - PuzzlePlayer2
   layers:
   - Default
   - TransparentFX

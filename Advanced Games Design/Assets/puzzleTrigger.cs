@@ -17,6 +17,7 @@ public class puzzleTrigger : MonoBehaviour
             {
                 puzzleCanvas.SetActive(true);
                 other.gameObject.SetActive(false);
+                GetComponent<PhotonView>().RPC("OnPuzzleStart", PhotonTargets.AllViaServer);
                 
             }
         }
@@ -24,5 +25,12 @@ public class puzzleTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         other.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "";
+    }
+
+    [PunRPC]
+    void OnPuzzleStart()
+    {
+        puzzleCanvas.SetActive(true);
+        
     }
 }
