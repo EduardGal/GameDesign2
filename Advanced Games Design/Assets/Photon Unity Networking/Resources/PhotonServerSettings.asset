@@ -60,4 +60,6 @@ MonoBehaviour:
   - OnKicked
   - FadeTo
   - M_ChangeTags
+  - M_Checkpoint1
+  - M_StartAtCheckpoint
   DisableAutoOpenWizard: 1

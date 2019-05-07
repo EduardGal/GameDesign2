@@ -10,50 +10,61 @@ public class screenDim : Photon.MonoBehaviour
 {
 
     AsyncOperation sync;
-
+    public GameObject narSystem;
     public GameObject dimImage;
     private GameObject playerOne, playerTwo;
     public List<GameObject> playersInGame;
 
-    // Start is called before the first frame update
+
     void Awake()
     {
-        //DontDestroyOnLoad(this);
+
         dimImage = GameObject.FindGameObjectWithTag("DimCanvas");
         playersInGame.Capacity = 2;
 
 
-       // this.GetComponent<PhotonView>(). photonView.RPC("DimScreen", PhotonTargets.AllBufferedViaServer, null);
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //DontDestroyOnLoad(this.gameObject);
-        //dimImage.GetComponent<Image>().color = new Color(0, 0, 0, Mathf.SmoothStep(255, 0, 2 * Time.deltaTime));
-        if (playerOne == null)
+        if (playerOne == null || playerTwo == null)
         {
-            playerOne = GameObject.FindGameObjectWithTag("PlayerOne");
-            if (playerOne != null)
+            if (playerOne == null)
             {
-                playersInGame.Add(playerOne);
+                playerOne = GameObject.FindGameObjectWithTag("PlayerOne");
+                if (playerOne != null)
+                {
+                    playersInGame.Add(playerOne);
+                }
+            }
+
+            if (playerTwo == null)
+            {
+                playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
+                if (playerTwo != null)
+                {
+                    playersInGame.Add(playerTwo);
+                }
             }
         }
-
-        if (playerTwo == null)
-        {
-            playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
-            if (playerTwo!= null)
-            {
-                playersInGame.Add(playerTwo);
-            }
-        }
-
+        StartCoroutine(StartGame(0, 3));
 
 
     }       
         
-    
+    IEnumerator StartGame(float aValue, float aTime)
+    {
+        float alpha = dimImage.GetComponent<RawImage>().color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            dimImage.GetComponent<RawImage>().color = newColor;
+            narSystem.SetActive(true);
+            yield return null;
+        }
+    }
 
     public void ChangeToFramandi()
     {

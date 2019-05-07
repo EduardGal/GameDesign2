@@ -14,6 +14,7 @@ public class playerNetwork : MonoBehaviour {
     private int PlayersInGame = 0;
     public GameObject playerListing1, currentRoom;
     public bool hostIsPlayerOne;
+    public bool startAtCheckpoint;
 
 
     private void Awake()
@@ -134,4 +135,25 @@ public class playerNetwork : MonoBehaviour {
         player2.tag = "PlayerTwo";
     }
 
+    public void Checkpoint1()
+    {
+        photonView.RPC("M_Checkpoint1", PhotonTargets.AllBufferedViaServer);
+    }
+    [PunRPC]
+    public void M_Checkpoint1()
+    {
+        PlayerPrefs.SetInt("Checkpoint1", 1);
+    }
+
+
+    public void StartAtCheckpoint()
+    {
+        photonView.RPC("M_StartAtCheckpoint", PhotonTargets.AllBufferedViaServer);
+    }
+
+    [PunRPC]
+    public void M_StartAtCheckpoint()
+    {
+
+    }
 }

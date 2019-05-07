@@ -7,10 +7,12 @@ public class enterTreeHouse : MonoBehaviour
 {
 
     public Transform treePos;
+    private GameObject network;
 
 
     private void OnTriggerStay(Collider other)
     {
+       
         if(other.tag == "PlayerOne" || other.tag == "PlayerTwo")
         {
             other.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Press E to enter tree house";
@@ -18,7 +20,7 @@ public class enterTreeHouse : MonoBehaviour
             {
                 other.gameObject.transform.position = treePos.position;
                 FindObjectOfType<AudioManager>().Play("Climb");
-
+                network.GetComponent<playerNetwork>().Checkpoint1();
             }
 
         }

@@ -12,8 +12,8 @@ namespace TMPro.Examples
         //[Range(0, 100)]
         //public int RevealSpeed = 50;
 
-        private string label01 = "Connecting to servers";
-        private string label02 = "Please wait...";
+        public string label01 = "Connecting to servers";
+        public string label02 = "Please wait...";
 
 
         private TMP_Text m_textMeshPro;
