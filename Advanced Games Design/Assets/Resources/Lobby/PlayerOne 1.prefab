@@ -1643,12 +1643,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   walkSpeed: 2
-  runSpeed: 6
+  runSpeed: 3
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
   devTesting: 1
   plCam: {fileID: 114}
+  invCanv: {fileID: 0}
+  helpText: {fileID: 0}
+  playerHand: {fileID: 0}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,6 +1752,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: throwRock
+  - Type: 4
+    SynchronizeType: 0
+    Name: pickupItem
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
