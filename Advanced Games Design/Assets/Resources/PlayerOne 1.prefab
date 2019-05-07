@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   walkSpeed: 2
-  runSpeed: 8
+  runSpeed: 3.5
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
@@ -679,8 +679,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4845288860498251707}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 3
+  instantiationId: 3
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &1629107643665075928

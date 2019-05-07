@@ -51,11 +51,14 @@ public class screenDim : Photon.MonoBehaviour
                 }
             }
         }
-        StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
-
-
-    }       
+        if (playerOne != null && playerTwo != null)
+        {
+           StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
+        }
         
+
+    }
+
     IEnumerator StartGame(CanvasGroup cg, float start, float end, float lerpTime = .5f)
     {
         Debug.LogWarning("StartingGame");
@@ -77,7 +80,7 @@ public class screenDim : Photon.MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         cg.gameObject.SetActive(false);
-
+        narSystem.SetActive(true);
         
 
 

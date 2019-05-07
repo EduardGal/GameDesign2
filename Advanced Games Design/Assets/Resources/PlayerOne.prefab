@@ -473,7 +473,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  - {fileID: 2100000, guid: 120e19514d5427746bb207adea3080b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1181,9 +1181,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986861815119311279}
-  m_LocalRotation: {x: 0.15409425, y: 0.078538164, z: 0.5502364, w: 0.8169006}
+  m_LocalRotation: {x: 0.15409425, y: 0.07853817, z: 0.55023634, w: 0.8169007}
   m_LocalPosition: {x: 0.48698694, y: -0.2551425, z: -0.12669423}
-  m_LocalScale: {x: 0.5000006, y: 0.50000006, z: 0.50000054}
+  m_LocalScale: {x: 0.5000019, y: 0.50000024, z: 0.50000125}
   m_Children: []
   m_Father: {fileID: 4549972729853729786}
   m_RootOrder: 1
@@ -1349,7 +1349,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  - {fileID: 2100000, guid: 3d26dc607741b384dac8c5ef16b10f00, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1491,7 +1491,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  - {fileID: 2100000, guid: c5f0f1254f051cd479dce132db6fabe4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3151,7 +3151,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  - {fileID: 2100000, guid: 9c0c2fe55850f5747a0979df9f70bb1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6280,8 +6280,9 @@ MonoBehaviour:
   devTesting: 0
   plCam: {fileID: 9130217803745859312}
   invCanv: {fileID: 6581094574281955691}
-  helpText: {fileID: 0}
-  playerHand: {fileID: 0}
+  helpText: {fileID: 1849285325640639404}
+  playerHand: {fileID: 867944371120984188}
+  startPos: {x: 38, y: 5, z: 260}
 --- !u!114 &2336301184661600976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8996,7 +8997,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  - {fileID: 2100000, guid: 2bc238eb25ef946478c09ae11c2a3cc9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10468,7 +10469,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  - {fileID: 2100000, guid: 9b5ae42469596d44dae1c63803e4f48b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
