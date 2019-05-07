@@ -6278,7 +6278,7 @@ MonoBehaviour:
   speedSmoothTime: 0.05
   devTesting: 0
   plCam: {fileID: 9130217803745859312}
-  invCanv: {fileID: 0}
+  invCanv: {fileID: 6581094574281955691}
 --- !u!114 &2336301184661600976
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -40,25 +40,27 @@ public class playerNetwork : MonoBehaviour {
     private void MasterLoadedGame()
     {
         //PlayersInGame = 1;
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+
         Debug.Log("MasterLoadedGame");
         photonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         photonView.RPC("RPC_LoadGameOthers", PhotonTargets.Others);
-        
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+
     }
 
     private void NonMasterLoadedGame()
     {
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+
         Debug.Log("Non Master Loaded Game");
         photonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
-        
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+
     }
 
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        //PhotonNetwork.LoadLevel(1);
+        PhotonNetwork.LoadLevel(1);
     }
 
     [PunRPC]
@@ -77,32 +79,7 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        if (hostIsPlayerOne)
-        {
-            if (PhotonNetwork.player.IsMasterClient)
-            {
-                PhotonNetwork.Instantiate(player.name, new Vector3(-2, 0, 0), Quaternion.identity, 0);
-            }
-            if (!PhotonNetwork.player.IsMasterClient)
-            {
-                PhotonNetwork.Instantiate(player2.name, new Vector3(3, 0, 0), Quaternion.identity, 0);
-            }
-
-        }
-        if (!hostIsPlayerOne)
-        {
-            if (PhotonNetwork.player.IsMasterClient)
-            {
-                PhotonNetwork.Instantiate(player2.name, new Vector3(-2, 0, 0), Quaternion.identity, 0);
-            }
-            if (!PhotonNetwork.player.IsMasterClient)
-            {
-                PhotonNetwork.Instantiate(player.name, new Vector3(3, 0, 0), Quaternion.identity, 0);
-            }
-
-        }
-
-
+        PhotonNetwork.Instantiate(player.name, new Vector3(-2, 0, 0), Quaternion.identity, 0);
     }
 
     public void OnCreateUsername()
