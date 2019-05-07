@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 5950578405277956166}
   - component: {fileID: 2703863960507593892}
   - component: {fileID: 1629107643665075928}
+  - component: {fileID: 4721746332719256509}
   m_Layer: 12
   m_Name: PlayerOne 1
   m_TagString: PlayerTwo
@@ -168,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 5231704078169205671}
   m_LocalRotation: {x: -0, y: -0.9500375, z: 0, w: -0.31213582}
   m_LocalPosition: {x: 38.39, y: 5.73, z: 260.86}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8431671871202726125}
   - {fileID: 1300553817468863321}
@@ -438,8 +439,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4845288860498251707}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 3
+  instantiationId: 3
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &1629107643665075928
@@ -469,6 +470,22 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &4721746332719256509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231704078169205671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ddbb3df1bef134dabe807e731c3995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatar_playerOne: {fileID: 9000000, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
+  avatar_playerTwo: {fileID: 9000000, guid: 46b0a062c53384d4fa75df303d9993a1, type: 3}
+  anim_playerOne: {fileID: 9100000, guid: a1019195601d8004c9c5da13abdc688b, type: 2}
+  anim_playerTwo: {fileID: 9100000, guid: d954832ef10e1d24b92d0ff3f207d37d, type: 2}
 --- !u!1 &6123684414893920424
 GameObject:
   m_ObjectHideFlags: 0

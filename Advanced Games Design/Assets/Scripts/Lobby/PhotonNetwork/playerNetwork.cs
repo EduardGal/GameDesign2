@@ -128,7 +128,6 @@ public class playerNetwork : MonoBehaviour {
     }
 
     [PunRPC]
-
     public void M_ChangeTags()
     {
         player.tag = "PlayerOne";
