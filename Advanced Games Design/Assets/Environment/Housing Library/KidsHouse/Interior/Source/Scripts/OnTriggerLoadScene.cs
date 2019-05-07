@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class OnTriggerLoadScene : MonoBehaviour
 {
 
-    public string levelToLoad;
     public GameObject networkManager;
 
     void Start()
     {
-       
+        networkManager.SetActive(true);
     }
 
     // Update is called once per frame
@@ -21,15 +20,15 @@ public class OnTriggerLoadScene : MonoBehaviour
         if (plyr.gameObject.tag == "PlayerOne" || plyr.gameObject.tag == "PlayerTwo")
         {
             plyr.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Press E to leave room";
-            networkManager.SetActive(true);
+            
             
             if (Input.GetKeyUp(KeyCode.E))
             {
 
                 networkManager.gameObject.GetComponent<screenDim>().ChangeToFramandi();
                 plyr.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "";
-                // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
-                // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
+                GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
+                GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(this);
                 FindObjectOfType<AudioManager>().Play("SoundtrackGame");

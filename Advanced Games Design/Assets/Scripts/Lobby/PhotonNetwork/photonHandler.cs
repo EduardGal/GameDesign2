@@ -36,7 +36,10 @@ public class photonHandler : MonoBehaviour {
     {
         if(scene.name == "KidsRoom")
         {
-            spawnPlayer();
+            if (PhotonNetwork.room.ExpectedUsers.Length == PhotonNetwork.room.PlayerCount)
+            {
+                spawnPlayer();
+            }
         }
 
     }

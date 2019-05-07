@@ -12,7 +12,7 @@ public class PlayerMovement : Photon.MonoBehaviour
 
     public bool devTesting = false;
     private PhotonView PhotonView;
-    public GameObject plCam;
+    public GameObject plCam, invCanv;
     private Vector3 selfPos;
     private Quaternion realRotation;
     private GameObject myInvCanvas;
@@ -31,11 +31,13 @@ public class PlayerMovement : Photon.MonoBehaviour
         if (devTesting)
         {
             plCam.SetActive(true);
+            invCanv.SetActive(true);
         }
         PhotonView = GetComponent<PhotonView>();
         if (!devTesting && PhotonView.isMine)
         {
             plCam.SetActive(true);
+            invCanv.SetActive(true);
 
             if (tagSet == false)
             {
@@ -76,14 +78,6 @@ public class PlayerMovement : Photon.MonoBehaviour
 
     private void Update()
     {
-
-        if (GameObject.FindGameObjectWithTag("Player"))
-        {
-            if (!GameObject.FindGameObjectWithTag("PlayerOne"))
-            {
-                GameObject.FindGameObjectWithTag("Player").tag = "PlayerOne";
-            } else GameObject.FindGameObjectWithTag("Player").tag = "PlayerTwo";
-        }
         if (!devTesting)
         {
             if (photonView.isMine)
@@ -147,7 +141,7 @@ public class PlayerMovement : Photon.MonoBehaviour
             //THIS IS OUR PLAYER
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
-            stream.SendNext(animator.GetFloat("speedPercent"));
+           // stream.SendNext(animator.GetFloat("speedPercent"));
             stream.SendNext(animator.GetBool("pickupItem"));
 
         }
@@ -157,7 +151,7 @@ public class PlayerMovement : Photon.MonoBehaviour
             selfPos = (Vector3)stream.ReceiveNext();
             realRotation = (Quaternion)stream.ReceiveNext();
 
-            animator.SetFloat("speedPercent", (float)stream.ReceiveNext());
+            //animator.SetFloat("speedPercent", (float)stream.ReceiveNext());
             animator.SetBool("pickupItem", (bool)stream.ReceiveNext());
         }
     }

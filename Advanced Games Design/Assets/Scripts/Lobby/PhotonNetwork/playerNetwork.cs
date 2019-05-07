@@ -40,23 +40,25 @@ public class playerNetwork : MonoBehaviour {
     private void MasterLoadedGame()
     {
         //PlayersInGame = 1;
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         Debug.Log("MasterLoadedGame");
         photonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         photonView.RPC("RPC_LoadGameOthers", PhotonTargets.Others);
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        
     }
 
     private void NonMasterLoadedGame()
     {
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         Debug.Log("Non Master Loaded Game");
         photonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        
     }
 
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-     //   PhotonNetwork.LoadLevel(1);
+        //PhotonNetwork.LoadLevel(1);
     }
 
     [PunRPC]
@@ -142,6 +144,18 @@ public class playerNetwork : MonoBehaviour {
         }
     }
 
+    public void ChangeTags()
+    {
+        photonView.RPC("M_ChangeTags", PhotonTargets.AllBufferedViaServer);
+            
+    }
 
+    [PunRPC]
+
+    public void M_ChangeTags()
+    {
+        player.tag = "PlayerOne";
+        player2.tag = "PlayerTwo";
+    }
 
 }

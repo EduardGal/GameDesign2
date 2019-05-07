@@ -59,4 +59,5 @@ MonoBehaviour:
   - OnChangeCharacterClick
   - OnKicked
   - FadeTo
+  - M_ChangeTags
   DisableAutoOpenWizard: 1
