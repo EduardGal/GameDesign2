@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class changeCharacter : MonoBehaviour
 {
     public Avatar avatar_playerOne, avatar_playerTwo;
-    public AnimatorController anim_playerOne, anim_playerTwo;
+    //public UnityEditor.Animations.AnimatorController anim_playerOne, anim_playerTwo;
     private GameObject network;
     // Start is called before the first frame update
     void Start()
@@ -14,15 +11,19 @@ public class changeCharacter : MonoBehaviour
         network = GameObject.FindGameObjectWithTag("PlayerNetwork");
         if (network.GetComponent<playerNetwork>().hostIsPlayerOne)
         {
+            Animator animator = gameObject.GetComponent<Animator>();
             if (PhotonNetwork.player.IsMasterClient)
             {
                 GetComponent<Animator>().avatar = avatar_playerOne;
-                GetComponent<Animator>().runtimeAnimatorController = anim_playerOne;
+
+                animator.runtimeAnimatorController = Resources.Load("Assets/THEA'S NEW ANIMATIONS/Sister_1/Sister_1_StandardIdle_FIX.controller") as RuntimeAnimatorController;
+
             }
             if (!PhotonNetwork.player.IsMasterClient)
             {
                 GetComponent<Animator>().avatar = avatar_playerTwo;
-                GetComponent<Animator>().runtimeAnimatorController = anim_playerTwo;
+                animator.runtimeAnimatorController = Resources.Load("Assets/THEA'S NEW ANIMATIONS/Sister_2/Sister_2_StandardIdle_FIX.controller") as RuntimeAnimatorController;
+
             }
 
 
@@ -31,18 +32,18 @@ public class changeCharacter : MonoBehaviour
                 if (!PhotonNetwork.player.IsMasterClient)
                 {
                     GetComponent<Animator>().avatar = avatar_playerOne;
-                    GetComponent<Animator>().runtimeAnimatorController = anim_playerOne;
+                    animator.runtimeAnimatorController = Resources.Load("Assets/THEA'S NEW ANIMATIONS/Sister_1/Sister_1_StandardIdle_FIX.controller") as RuntimeAnimatorController;
+                    if (PhotonNetwork.player.IsMasterClient)
+                    {
+                        GetComponent<Animator>().avatar = avatar_playerTwo;
+                        animator.runtimeAnimatorController = Resources.Load("Assets/THEA'S NEW ANIMATIONS/Sister_2/Sister_2_StandardIdle_FIX.controller") as RuntimeAnimatorController;
+                    }
                 }
-                if (PhotonNetwork.player.IsMasterClient)
-                {
-                    GetComponent<Animator>().avatar = avatar_playerTwo;
-                    GetComponent<Animator>().runtimeAnimatorController = anim_playerTwo;
-                }
+
+
+
+
             }
-
-
-
-
         }
     }
     // Update is called once per frame
