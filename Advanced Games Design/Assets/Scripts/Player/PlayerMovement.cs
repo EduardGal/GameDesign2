@@ -17,7 +17,7 @@ public class PlayerMovement : Photon.MonoBehaviour
     private Quaternion realRotation;
     private GameObject myInvCanvas;
     private bool tagSet = false;
-
+    public Vector3 startPos;
 
     private float playerSpeed, animSpeedPercent, turnSmoothVelocity, speedSmoothVelocity, currentSpeed, velocityY;
 
@@ -167,4 +167,15 @@ public class PlayerMovement : Photon.MonoBehaviour
             animator.SetBool("pickupItem", (bool)stream.ReceiveNext());
         }
     }
+
+    public void OnGameOver()
+    {
+        photonView.RPC("M_OnGameOver", PhotonTargets.AllViaServer);
+    }
+    [PunRPC]
+    public void M_OnGameOver()
+    {
+        transform.position = startPos;
+    }
+
 }

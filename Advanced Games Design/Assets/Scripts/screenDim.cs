@@ -59,8 +59,11 @@ public class screenDim : Photon.MonoBehaviour
     IEnumerator StartGame(CanvasGroup cg, float start, float end, float lerpTime = .5f)
     {
         Debug.LogWarning("StartingGame");
+        if (GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().startAtCheckpoint)
+        {
+            this.GetComponent<PhotonView>().photonView.RPC("DimScreenCheckPoint", PhotonTargets.AllViaServer, null);
+        }
 
-       
 
         while (true)
         {
@@ -70,14 +73,11 @@ public class screenDim : Photon.MonoBehaviour
 
             cg.alpha = currentValue;
 
-            if (cg.alpha == 0) break;
+            if (cg.alpha < 0.1f) break;
             yield return new WaitForEndOfFrame();
         }
+        cg.gameObject.SetActive(false);
 
-        if (GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().startAtCheckpoint)
-        {
-            this.GetComponent<PhotonView>().photonView.RPC("DimScreenCheckPoint", PhotonTargets.AllViaServer, null);
-        }
         
 
 

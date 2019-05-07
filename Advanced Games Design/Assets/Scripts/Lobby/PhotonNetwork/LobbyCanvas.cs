@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LobbyCanvas : MonoBehaviour {
 
-
+    public GameObject joinView;
     [SerializeField]
     private RoomLayoutGroup _roomLayout;
     private RoomLayoutGroup RoomLayout
@@ -42,7 +42,9 @@ public class LobbyCanvas : MonoBehaviour {
     {
         if (PhotonNetwork.JoinRoom(roomName))
         {
+            joinView.transform.SetAsFirstSibling();
             currentRoom.SetActive(true);
+            
         }
         else
         {

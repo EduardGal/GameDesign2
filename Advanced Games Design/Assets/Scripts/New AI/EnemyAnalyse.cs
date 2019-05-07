@@ -15,20 +15,22 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
 
     private PlayersLastLocation playersLastLocation;
 
+    bool needReset;
     Color startingSpotlightColour;
     NavMeshAgent navMeshAgent;
     private Animator anim;
     private BoxCollider boxCollider;
     private Transform playerOne, playerTwo;
     private bool analysingPlayer;
-    private float playerOneWarningTimer, playerTwoWarningTimer;
+    public float playerOneWarningTimer, playerTwoWarningTimer;
+    public Vector3 Startpos;
     
     GameObject spotlightPosition;
     public Vector3 spotlightOffset;
 
     private void Awake()
     {
-        
+        transform.position = Startpos;
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -44,6 +46,17 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
 
     private void Update()
     {
+        
+        if(playerTwoWarningTimer >= 5 || playerOneWarningTimer >= 5)
+        {
+            GameObject.FindGameObjectWithTag("PlayerNetwork").GetComponent<playerNetwork>().GameOver(playerOne.gameObject, playerTwo.gameObject);
+            GameObject[] bots = GameObject.FindGameObjectsWithTag("Enemy");
+            
+            foreach(GameObject go in bots)
+            {
+                go.GetComponent<EnemyAnalyse>().OnGameOver();
+            }
+        }
         // If player one is in range, analyse them. (Change drone lighting colour, after X amounts of seconds the game should end, This hasnt been implemented yet)
         if (PlayerOneInRange())
         {
@@ -141,4 +154,15 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         navMeshAgent.speed = followSpeedWhileAnalysing;
     }
 
+
+
+    public void OnGameOver()
+    {
+        needReset = true;
+        if (needReset == true)
+        {
+            transform.position = Startpos;
+        }
+        needReset = false;
+    }
 }

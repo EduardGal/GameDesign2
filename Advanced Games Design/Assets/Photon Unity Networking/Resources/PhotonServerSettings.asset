@@ -63,4 +63,6 @@ MonoBehaviour:
   - M_Checkpoint1
   - M_StartAtCheckpoint
   - DimScreenCheckPoint
+  - M_GameOver
+  - M_OnGameOver
   DisableAutoOpenWizard: 1

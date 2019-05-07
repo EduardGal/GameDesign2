@@ -25,7 +25,7 @@ public class kickPlayer : Photon.MonoBehaviour
         else {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(false);
         }
     }
 

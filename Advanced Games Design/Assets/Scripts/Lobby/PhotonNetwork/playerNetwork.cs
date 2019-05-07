@@ -156,4 +156,16 @@ public class playerNetwork : MonoBehaviour {
     {
 
     }
+
+    public void GameOver(GameObject playerOne, GameObject playerTwo)
+    {
+        photonView.RPC("M_GameOver", PhotonTargets.AllBufferedViaServer, playerOne, playerTwo);
+    }
+    [PunRPC]
+    public void M_GameOver(GameObject playerOne, GameObject playerTwo)
+    {
+        playerOne.GetComponent<PlayerMovement>().OnGameOver();
+        playerTwo.GetComponent<PlayerMovement>().OnGameOver();
+
+    }
 }
