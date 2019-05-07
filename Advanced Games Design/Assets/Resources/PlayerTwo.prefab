@@ -953,6 +953,7 @@ MonoBehaviour:
   devTesting: 0
   plCam: {fileID: 215}
   invCanv: {fileID: 9138341558588355509}
+  helpText: {fileID: 0}
 --- !u!114 &1959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,8 +1028,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 3
-  instantiationId: 3
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &1971
@@ -1072,8 +1073,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar_playerOne: {fileID: 9000000, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
   avatar_playerTwo: {fileID: 9000000, guid: 46b0a062c53384d4fa75df303d9993a1, type: 3}
-  anim_playerOne: {fileID: 9100000, guid: a1019195601d8004c9c5da13abdc688b, type: 2}
-  anim_playerTwo: {fileID: 9100000, guid: d954832ef10e1d24b92d0ff3f207d37d, type: 2}
 --- !u!1 &398
 GameObject:
   m_ObjectHideFlags: 0

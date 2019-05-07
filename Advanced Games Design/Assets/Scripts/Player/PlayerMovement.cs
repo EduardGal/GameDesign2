@@ -12,7 +12,7 @@ public class PlayerMovement : Photon.MonoBehaviour
 
     public bool devTesting = false;
     private PhotonView PhotonView;
-    public GameObject plCam, invCanv;
+    public GameObject plCam, invCanv, helpText, playerHand;
     private Vector3 selfPos;
     private Quaternion realRotation;
     private GameObject myInvCanvas;
@@ -28,16 +28,28 @@ public class PlayerMovement : Photon.MonoBehaviour
     
     private void Awake()
     {
+        GetComponent<Player>().enabled = false;
         if (devTesting)
         {
             plCam.SetActive(true);
             invCanv.SetActive(true);
+            helpText.SetActive(true);
+            GetComponent<Player>().enabled = true;
+            GetComponent<InteractableManager>().enabled = true;
+            GetComponent<RockThrow>().enabled = true;
+            playerHand.SetActive(true);
+
         }
         PhotonView = GetComponent<PhotonView>();
         if (!devTesting && PhotonView.isMine)
         {
             plCam.SetActive(true);
             invCanv.SetActive(true);
+            helpText.SetActive(true);
+            GetComponent<InteractableManager>().enabled = true;
+            GetComponent<RockThrow>().enabled = true;
+            GetComponent<Player>().enabled = true;
+            playerHand.SetActive(true);
 
             if (tagSet == false)
             {

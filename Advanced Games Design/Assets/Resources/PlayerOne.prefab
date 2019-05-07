@@ -6280,6 +6280,8 @@ MonoBehaviour:
   devTesting: 0
   plCam: {fileID: 9130217803745859312}
   invCanv: {fileID: 6581094574281955691}
+  helpText: {fileID: 0}
+  playerHand: {fileID: 0}
 --- !u!114 &2336301184661600976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6399,8 +6401,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar_playerOne: {fileID: 9000000, guid: d995f27af7b7ffa46947d3acfb456168, type: 3}
   avatar_playerTwo: {fileID: 9000000, guid: 46b0a062c53384d4fa75df303d9993a1, type: 3}
-  anim_playerOne: {fileID: 9100000, guid: a1019195601d8004c9c5da13abdc688b, type: 2}
-  anim_playerTwo: {fileID: 9100000, guid: d954832ef10e1d24b92d0ff3f207d37d, type: 2}
+  network: {fileID: 0}
+  sisterOne: {fileID: 0}
+  sisterTwo: {fileID: 0}
+  anim1: {fileID: 0}
+  anim2: {fileID: 0}
 --- !u!1 &5541190239032598333
 GameObject:
   m_ObjectHideFlags: 0

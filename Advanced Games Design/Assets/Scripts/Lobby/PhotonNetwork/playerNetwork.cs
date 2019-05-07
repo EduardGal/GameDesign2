@@ -79,7 +79,7 @@ public class playerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        PhotonNetwork.Instantiate(player.name, new Vector3(-2, 0, 0), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(player.name, new Vector3(-2, -1.8f, 0), Quaternion.identity, 0);
     }
 
     public void OnCreateUsername()
