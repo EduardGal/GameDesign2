@@ -66,6 +66,4 @@ MonoBehaviour:
   - M_GameOver
   - M_OnGameOver
   - OnPuzzleStart
-  - ChangingColorPlayoneInRange
-  - ChangingColorPlaytwoInRange
   DisableAutoOpenWizard: 1

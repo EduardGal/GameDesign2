@@ -58,57 +58,48 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
             }
         }
         // If player one is in range, analyse them. (Change drone lighting colour, after X amounts of seconds the game should end, This hasnt been implemented yet)
-        if (PlayerOneInRange() || PlayerTwoInRange())
+        if (PlayerOneInRange())
         {
             Debug.Log("PlayerOneInRange");
             this.playerOneWarningTimer += Time.deltaTime;
             AnalysePlayerOne();
 
             this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
-            this.playerTwoWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
-            photonView.RPC("ChangingColorPlayoneInRange", PhotonTargets.AllViaServer);
 
         }
         else
         {
             this.playerOneWarningTimer -= Time.deltaTime;
-            this.playerTwoWarningTimer -= Time.deltaTime;
         }
 
         if (this.playerOneWarningTimer <= 0)
         {
             Debug.Log("out of range");
             playerOneWarningTimer = 0;
-            playerTwoWarningTimer = 0;
             this.spotlight.color = startingSpotlightColour;
         }
 
         // Analyse Player Two - THIS HAS NOT BEEN TESTED, MAY NEEED TO BE REVISTED. 
         // It works for player one, so I copied and pasted for player two. Not sure what happens if both players are in range
         // or if the timer resets when the closest player to the drone changes, or does the timer continue?? 
-        if (PlayerTwoInRange() || PlayerOneInRange())
+        if (PlayerTwoInRange())
         {
             this.playerTwoWarningTimer += Time.deltaTime;
-            this.playerOneWarningTimer += Time.deltaTime;
             AnalysePlayerTwo();
             Debug.Log("PlayerTwoInRange");
             this.playerTwoWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
-            this.playerOneWarningTimer = Mathf.Clamp(playerTwoWarningTimer, 0, warningDuration);
             this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerTwoWarningTimer / warningDuration);
-            photonView.RPC("ChangingColorPlayoneInRange", PhotonTargets.AllViaServer);
         }
         else
         {
             this.playerTwoWarningTimer -= Time.deltaTime;
-            this.playerOneWarningTimer -= Time.deltaTime;
         }
 
         if (this.playerTwoWarningTimer <= 0)
         {
             Debug.Log("out of range");
             playerTwoWarningTimer = 0;
-            playerOneWarningTimer = 0;
             this.spotlight.color = startingSpotlightColour;
         }
     }
@@ -162,7 +153,9 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
         navMeshAgent.stoppingDistance = 7.0f;
         navMeshAgent.speed = followSpeedWhileAnalysing;
     }
-       
+
+
+
     public void OnGameOver()
     {
         needReset = true;
@@ -171,21 +164,5 @@ public class EnemyAnalyse : Photon.MonoBehaviour {
             transform.position = Startpos;
         }
         needReset = false;
-    }
-
-    [PunRPC]
-    public void ChangingColorPlayoneInRange()
-    {
-        this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
-        this.playerTwoWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
-        this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
-    }
-
-    [PunRPC]
-    public void ChangingColorPlaytwoInRange()
-    {
-        this.playerOneWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
-        this.playerTwoWarningTimer = Mathf.Clamp(playerOneWarningTimer, 0, warningDuration);
-        this.spotlight.color = Color.Lerp(Color.yellow, Color.red, playerOneWarningTimer / warningDuration);
     }
 }

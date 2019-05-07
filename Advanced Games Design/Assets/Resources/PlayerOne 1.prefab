@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   walkSpeed: 2
-  runSpeed: 3.5
+  runSpeed: 8
   gravity: -12
   rotationSmoothTime: 0.2
   speedSmoothTime: 0.05
@@ -604,7 +604,7 @@ MonoBehaviour:
   invCanv: {fileID: 348477417610810333}
   helpText: {fileID: 9194471828505520452}
   playerHand: {fileID: 6886160430408908991}
-  startPos: {x: 38, y: 5.7, z: 260}
+  startPos: {x: 127, y: 2.9, z: 155}
 --- !u!114 &7371279433928146324
 MonoBehaviour:
   m_ObjectHideFlags: 0
