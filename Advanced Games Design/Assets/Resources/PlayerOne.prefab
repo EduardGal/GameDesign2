@@ -6282,6 +6282,7 @@ MonoBehaviour:
   invCanv: {fileID: 6581094574281955691}
   helpText: {fileID: 0}
   playerHand: {fileID: 0}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2336301184661600976
 MonoBehaviour:
   m_ObjectHideFlags: 0
