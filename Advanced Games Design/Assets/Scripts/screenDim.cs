@@ -53,12 +53,12 @@ public class screenDim : Photon.MonoBehaviour
         }
         if (playerOne != null && playerTwo != null)
         {
-            StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
+           // StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
         }
+        StartCoroutine(StartGame(uiElement, uiElement.alpha, 0));
 
+    }
 
-    }       
-        
     IEnumerator StartGame(CanvasGroup cg, float start, float end, float lerpTime = .5f)
     {
         Debug.LogWarning("StartingGame");
