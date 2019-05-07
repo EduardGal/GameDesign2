@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class OnTriggerLoadScene : MonoBehaviour
 {
 
-    public GameObject enterText;
     public string levelToLoad;
     public GameObject networkManager;
 
     void Start()
     {
-        enterText.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -20,13 +20,14 @@ public class OnTriggerLoadScene : MonoBehaviour
     {
         if (plyr.gameObject.tag == "PlayerOne" || plyr.gameObject.tag == "PlayerTwo")
         {
+            plyr.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Press E to leave room";
             networkManager.SetActive(true);
-            enterText.SetActive(true);
+            
             if (Input.GetKeyUp(KeyCode.E))
             {
 
                 networkManager.gameObject.GetComponent<screenDim>().ChangeToFramandi();
-                enterText.SetActive(false);
+                plyr.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "";
                 // GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<screenDim>().ChangeToFramandi();
                 // GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<screenDim>().ChangeToFramandi();
                 gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -39,7 +40,7 @@ public class OnTriggerLoadScene : MonoBehaviour
     {
         if (plyr.gameObject.tag == "PlayerOne" || plyr.gameObject.tag == "PlayerTwo")
         {
-            enterText.SetActive(false);
+            plyr.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
     }
 

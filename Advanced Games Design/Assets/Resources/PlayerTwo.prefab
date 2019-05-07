@@ -376,6 +376,36 @@ Transform:
   m_Father: {fileID: 7860385571033064819}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1422705691604111065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958379204490909044}
+  m_Layer: 12
+  m_Name: ItemSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &958379204490909044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422705691604111065}
+  m_LocalRotation: {x: 0.15409425, y: 0.078538164, z: 0.5502364, w: 0.8169006}
+  m_LocalPosition: {x: 0.48698694, y: -0.2551425, z: -0.12669423}
+  m_LocalScale: {x: 0.5000006, y: 0.50000006, z: 0.50000054}
+  m_Children: []
+  m_Father: {fileID: 8224221676900278110}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491190923862250400
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInHand: {fileID: 1374731569, guid: 9dba02a256f64714f8e5766af0029954, type: 3}
-  playersHand: {fileID: 0}
+  playersHand: {fileID: 1422705691604111065}
 --- !u!114 &6785798056082900506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3476,6 +3506,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46b0a062c53384d4fa75df303d9993a1, type: 3}
+--- !u!4 &8224221676900278110 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400280, guid: 46b0a062c53384d4fa75df303d9993a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8224221676900140230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8224221676900277850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400028, guid: 46b0a062c53384d4fa75df303d9993a1,
