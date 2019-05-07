@@ -59,7 +59,7 @@ public class screenDim : Photon.MonoBehaviour
     {
             
             this.GetComponent<PhotonView>().photonView.RPC("DimScreen", PhotonTargets.AllViaServer, null);
-
+        Debug.LogWarning("Changing Scene");
 
     }
 
@@ -87,7 +87,7 @@ public class screenDim : Photon.MonoBehaviour
         yield return new WaitForSeconds(.1f);
 
         
-        Debug.Log("SetScene");
+        Debug.LogWarning("SetScene");
         //this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         int c = SceneManager.sceneCount;
         for (int i = 0; i < c; i++)
@@ -97,7 +97,7 @@ public class screenDim : Photon.MonoBehaviour
             if (scene.name != "Framandi v1")
             {
                 SceneManager.UnloadSceneAsync(scene);
-                Debug.Log("Unloaded");
+                Debug.LogWarning("Unloaded");
             }
         }
     }
