@@ -4316,8 +4316,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4845288860498251707}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 8
-  instantiationId: 8
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &1629107643665075928
@@ -9462,6 +9462,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: da70b0a5d2120104f883360947171606,
         type: 2}
+    - target: {fileID: 47067997041106475, guid: 32647a4e8d734b74a8b4965711b03fc4,
+        type: 3}
+      propertyPath: m_OverrideTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47067997041106475, guid: 32647a4e8d734b74a8b4965711b03fc4,
+        type: 3}
+      propertyPath: m_ApplyAirToSkybox
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32647a4e8d734b74a8b4965711b03fc4, type: 3}
 --- !u!4 &1868116797359911583 stripped
